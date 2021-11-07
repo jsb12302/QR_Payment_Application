@@ -3,9 +3,6 @@ package com.example.apitest.signup.user;
 import com.example.apitest.Role;
 import com.example.apitest.exception.EmptyFieldFoundException;
 import com.example.apitest.exception.SameSignUpInfoFoundException;
-import com.example.apitest.signup.user.User;
-import com.example.apitest.signup.user.UserDTO;
-import com.example.apitest.signup.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,9 +24,9 @@ public class UserSignUpService {
     //DTO로 회원가입
     public void userRegister(UserDTO userDTO){
         if (userDTO.getUserId().trim().isEmpty() || userDTO.getUserPwd().trim().isEmpty()
-        || userDTO.getUserPwd2().trim().isEmpty() || userDTO.getUserName().trim().isEmpty()
-        || userDTO.getUserHP().trim().isEmpty()){
-            throw new EmptyFieldFoundException();
+                || userDTO.getUserPwd2().trim().isEmpty() || userDTO.getUserName().trim().isEmpty()
+                || userDTO.getUserHP().trim().isEmpty()){
+            throw new EmptyFieldFoundException("빈칸 존재");
         }else if (userRepository.findByUserId(userDTO.getUserId())!=null){
             throw new SameSignUpInfoFoundException("동일 아이디 존재");
         }else if (userRepository.findByUserHP(userDTO.getUserHP())!=null){

@@ -23,7 +23,6 @@ public class OwnerSignUpController {
     }
 
     @ExceptionHandler({EmptyFieldFoundException.class, SameSignUpInfoFoundException.class})
-    @ResponseStatus
     public void handleSignUpException(Exception e) {
         Message message = new Message();
         message.setMessage(e.getMessage());

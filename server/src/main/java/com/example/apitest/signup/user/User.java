@@ -8,10 +8,8 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-//@Builder
 @NoArgsConstructor
-//@AllArgsConstructor
-@Table(name="User")
+@AllArgsConstructor
 public class User {
 
     @Id
@@ -30,7 +28,7 @@ public class User {
     @Builder
     public static User JoinUser(String userId, String userPwd, String userPwd2,
                                 String userName, String userHP,Role role){
-        User user=new User();
+        User user = new User();
         user.userId=userId;
         user.userPwd=userPwd;
         user.userPwd2=userPwd2;
@@ -39,14 +37,5 @@ public class User {
         user.role=role;
         return user;
     }
-
-//    public User(int id, String userId, String userPwd, String userPwd2, String userName, String userHP) {
-//        this.id = id;
-//        this.userId = userId;
-//        this.userPwd = userPwd;
-//        this.userPwd2 = userPwd2;
-//        this.userName = userName;
-//        this.userHP = userHP;
-//    }
 
 }

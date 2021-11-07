@@ -3,11 +3,9 @@ package com.example.apitest.signup.user;
 import com.example.apitest.Role;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
 public class UserDTO {
 
     private String userId;
