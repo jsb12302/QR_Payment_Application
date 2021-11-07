@@ -8,11 +8,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HttpClient {
 
-<<<<<<< .merge_file_a10436
-    private static String BASE_URL = "http://192.168.0.23:8080";
-=======
     private static String BASE_URL = "http://192.168.0.13:8080";
->>>>>>> .merge_file_a19980
+
 
     public static HttpService getApiService(){
         return getInstance().create(HttpService.class);
