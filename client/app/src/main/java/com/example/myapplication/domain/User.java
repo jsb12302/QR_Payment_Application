@@ -1,9 +1,8 @@
-package com.example.myapplication.doain;
+package com.example.myapplication.domain;
 
 
 import com.google.gson.annotations.SerializedName;
 
-import lombok.Builder;
 import lombok.Data;
 
 @Data

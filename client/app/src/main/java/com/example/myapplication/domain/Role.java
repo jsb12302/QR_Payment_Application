@@ -1,4 +1,4 @@
-package com.example.myapplication.doain;
+package com.example.myapplication.domain;
 
 
 public enum Role {

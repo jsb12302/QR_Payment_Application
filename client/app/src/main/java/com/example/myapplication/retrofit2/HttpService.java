@@ -1,12 +1,9 @@
 package com.example.myapplication.retrofit2;
 
-import com.example.myapplication.doain.User;
 import com.example.myapplication.login.LoginRequestDto;
 import com.example.myapplication.message.Message;
 import com.example.myapplication.signup.OwnerSignUpDto;
 import com.example.myapplication.signup.UserSignUpDto;
-
-import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.http.*;

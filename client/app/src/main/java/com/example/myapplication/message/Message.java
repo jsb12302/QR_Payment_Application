@@ -1,6 +1,6 @@
 package com.example.myapplication.message;
 
-import com.example.myapplication.doain.Role;
+import com.example.myapplication.domain.Role;
 
 public class Message {
 

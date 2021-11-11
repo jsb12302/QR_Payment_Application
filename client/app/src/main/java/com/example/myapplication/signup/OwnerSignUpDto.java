@@ -1,10 +1,8 @@
 package com.example.myapplication.signup;
 
 
-import com.example.myapplication.doain.Role;
+import com.example.myapplication.domain.Role;
 
-import lombok.Getter;
-import lombok.Setter;
 public class OwnerSignUpDto {
 
     private String ownerId;

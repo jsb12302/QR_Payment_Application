@@ -7,19 +7,17 @@ import android.view.View;
 import android.os.Bundle;
 import android.widget.EditText;
 
-import com.example.myapplication.doain.Role;
+import com.example.myapplication.domain.Role;
 import com.example.myapplication.login.Login;
 import com.example.myapplication.login.LoginRequestDto;
 import com.example.myapplication.owner.OwnerMain;
 import com.example.myapplication.retrofit2.HttpClient;
 import com.example.myapplication.retrofit2.HttpService;
 import com.example.myapplication.message.Message;
-import com.example.myapplication.doain.User;
+import com.example.myapplication.signup.SignUp;
 
 
 import org.json.JSONException;
-
-import java.io.IOException;
 
 import retrofit2.Response;
 

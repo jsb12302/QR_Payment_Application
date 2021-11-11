@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".login.Login"/>
-        <activity android:name=".SignUp"/>
+        <activity android:name=".signup.SignUp"/>
         <activity android:name=".user.UserMain"/>
         <activity android:name=".user.qr.ScanQRActivity"/>
         <activity android:name=".signup.SignUpUserRequest"
