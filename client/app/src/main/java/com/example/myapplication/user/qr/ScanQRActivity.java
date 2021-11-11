@@ -1,5 +1,6 @@
 package com.example.myapplication.user.qr;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,31 +16,21 @@ import com.journeyapps.barcodescanner.CaptureActivity;
 
 public class ScanQRActivity extends AppCompatActivity {
 
-    private Button buttonScan;
     private IntentIntegrator qrScan;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_main);
 
-        //View Objects
-        buttonScan = (Button) findViewById(R.id.ScanButton);
-
-        //intializing scan object
         qrScan = new IntentIntegrator(this);
 
-        //button onClick
-        buttonScan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //scan option
-                qrScan.setPrompt("Scanning...");
-                qrScan.setOrientationLocked(false);
-                qrScan.setCaptureActivity(CaptureActivity.class);
-                qrScan.initiateScan();
-            }
-        });
+        qrScan.setPrompt("Scanning...");
+        qrScan.setOrientationLocked(false);
+        qrScan.setCaptureActivity(CaptureActivity.class);
+        qrScan.initiateScan();
+
     }
     //Getting the scan results
     @Override

@@ -14,14 +14,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.084"
-        app:srcCompat="@drawable/home_logo" />
+        app:srcCompat="@drawable/main_pic" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/SearchButton"
         android:layout_width="137dp"
         android:layout_height="128dp"
         android:layout_marginBottom="132dp"
         android:background="@drawable/round_box"
+        android:onClick="map"
         android:text="매장 검색"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,11 +40,12 @@
         android:layout_marginBottom="132dp"
         android:background="@drawable/round_box"
         android:clickable="true"
+        android:focusable="true"
+        android:onClick="scan"
         android:text="QR 카메라"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="1.0"
-        android:focusable="true" />
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

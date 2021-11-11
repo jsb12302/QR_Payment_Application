@@ -22,37 +22,30 @@ public class LoginService {
     OwnerRepository ownerRepository;
 
     public Role login(LoginDto loginDto) {
-        Message message = new Message();
+        Message message=new Message();
+        User user = userRepository.findByUserId(loginDto.getId());
+        Owner owner = ownerRepository.findByOwnerId(loginDto.getId());
 
-        if (loginDto.role.equals(Role.ROLE_OWNER)) {
-            Owner owner = ownerRepository.findByOwnerId(loginDto.getId());
+        if (Objects.isNull(user)&&Objects.isNull(owner)){
+            throw new LoginFailException("존재하지 않는 아이디");
+        }
 
-            // 아이디 체크
-            if (Objects.isNull(owner)){
-                throw new LoginFailException("존재하지 않는 아이디");
+        if(!Objects.isNull(user)) {
+
+            if (user.getRole().equals(Role.ROLE_USER)) { //사용자 역할 확인
+                if (user.getUserPwd().equals(user.getUserPwd())) {
+                    return user.getRole();
+                } else {
+                    throw new LoginFailException("로그인 실패");
+                }
             }
-
-            // 비밀번호 확인
-            if (owner.getOwnerPwd().equals(loginDto.pwd)) {
+        }
+        if (!Objects.isNull(owner)){
+            if (owner.getOwnerId().equals(owner.getOwnerPwd())) {
                 return owner.getRole();
             } else {
                 throw new LoginFailException("로그인 실패");
             }
-
-        }
-        else if (loginDto.role.equals(Role.ROLE_USER)) {
-            User user = userRepository.findByUserId(loginDto.getId());
-
-            if (Objects.isNull(user)){
-                throw new LoginFailException("존재하지 않는 아이디");
-            }
-
-            if (user.getUserPwd().equals(loginDto.pwd)) {
-                return user.getRole();
-            } else {
-                throw new LoginFailException("로그인 실패");
-            }
-
         }
         return null;
     }
