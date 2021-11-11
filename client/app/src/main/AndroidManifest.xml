@@ -27,8 +27,10 @@
         <activity android:name=".SignUp"/>
         <activity android:name=".user.UserMain"/>
         <activity android:name=".user.qr.ScanQRActivity"/>
-        <activity android:name=".signup.SignUpUserRequest"/>
-        <activity android:name=".signup.OwnerSignUpRequest"/>
+        <activity android:name=".signup.SignUpUserRequest"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".signup.OwnerSignUpRequest"
+            android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".owner.OwnerMain"/>
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
