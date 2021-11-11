@@ -13,7 +13,7 @@ public class OwnerSignUpController {
     @Autowired
     OwnerSignUpService ownerSignUpService;
 
-    @PostMapping("/ownerSingUpRequest")
+    @PostMapping("/ownerSignUpRequest")
     @ResponseBody
     public Message register(@RequestBody OwnerDTO ownerDTO){
         ownerSignUpService.ownerRegister(ownerDTO);
