@@ -16,7 +16,7 @@ public interface HttpService {
     @POST("/userSignUpRequest")
     Call<Message> UserSignUpRequest(@Body UserSignUpDto userSignUpDto);
 
-    @POST("/ownerSingUpRequest")
+    @POST("/ownerSignUpRequest")
     Call<Message> OwnerSignUpRequest(@Body OwnerSignUpDto ownerSignUpDto);
 
     @POST("/login")
