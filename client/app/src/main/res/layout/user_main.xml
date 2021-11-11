@@ -17,11 +17,12 @@
         app:srcCompat="@drawable/home_logo" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/SearchButton"
         android:layout_width="137dp"
         android:layout_height="128dp"
         android:layout_marginBottom="132dp"
         android:background="@drawable/round_box"
+        android:onClick="map"
         android:text="매장 검색"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,6 +40,7 @@
         android:layout_marginBottom="132dp"
         android:background="@drawable/round_box"
         android:clickable="true"
+        android:onClick="scan"
         android:text="QR 카메라"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"

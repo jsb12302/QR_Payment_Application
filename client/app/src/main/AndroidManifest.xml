@@ -15,6 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="detunremqu" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -27,6 +30,7 @@
         <activity android:name=".signup.SignUp"/>
         <activity android:name=".user.UserMain"/>
         <activity android:name=".user.qr.ScanQRActivity"/>
+        <activity android:name=".user.map.MapActivity"/>
         <activity android:name=".signup.SignUpUserRequest"
             android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".signup.OwnerSignUpRequest"
