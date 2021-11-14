@@ -53,6 +53,8 @@
         <entry key="..\:/android/client/app/src/main/res/drawable/login_button.xml" value="0.38229166666666664" />
         <entry key="..\:/android/client/app/src/main/res/drawable/man_resize.xml" value="0.38229166666666664" />
         <entry key="..\:/android/client/app/src/main/res/drawable/round_box.xml" value="0.38229166666666664" />
+        <entry key="..\:/android/client/app/src/main/res/drawable/select_usertype.xml" value="0.38229166666666664" />
+        <entry key="..\:/android/client/app/src/main/res/drawable/signup_button.xml" value="0.38229166666666664" />
         <entry key="..\:/android/client/app/src/main/res/drawable/signup_shop_pic.xml" value="0.38229166666666664" />
         <entry key="..\:/android/client/app/src/main/res/drawable/signup_user_pic.xml" value="0.38229166666666664" />
         <entry key="..\:/android/client/app/src/main/res/drawable/user_type_box.xml" value="0.22135416666666666" />
@@ -64,6 +66,7 @@
         <entry key="..\:/android/client/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
         <entry key="..\:/android/client/app/src/main/res/layout/login.xml" value="0.1675925925925926" />
         <entry key="..\:/android/client/app/src/main/res/layout/main_screen.xml" value="0.33" />
+        <entry key="..\:/android/client/app/src/main/res/layout/owner_main.xml" value="0.36614583333333334" />
         <entry key="..\:/android/client/app/src/main/res/layout/signup.xml" value="0.2074074074074074" />
         <entry key="..\:/android/client/app/src/main/res/layout/signup_owner.xml" value="0.25" />
         <entry key="..\:/android/client/app/src/main/res/layout/signup_user.xml" value="0.2074074074074074" />
