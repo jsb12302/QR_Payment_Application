@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-    <!--뷰크기 가로 417dp-->
+    android:orientation="vertical"
+    android:gravity="center">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="61dp"
@@ -16,35 +17,31 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="회원가입"
-            android:textColor="#2196F3"
+            android:textColor="#0E3F6C"
+            android:fontFamily="@font/elicebold"
             android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:background="#DCDCDC" />
+        android:layout_height="2dp"
+        android:background="#0E3F6C"  />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="105dp"
-        android:orientation="horizontal">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="center">
 
-        <LinearLayout
-            android:layout_width="140dp"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <View
-                android:id="@+id/view"
-                android:layout_width="80dp"
-                android:layout_height="5dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="50dp"
-                android:background="#DCDCDC" />
-
-        </LinearLayout>
+        <View
+            android:id="@+id/view"
+            android:layout_width="80dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="50dp"
+            android:background="#0E3F6C"
+            android:layout_gravity="top"/>
 
         <TextView
             android:id="@+id/textView3"
@@ -52,30 +49,23 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="SignUp with"
-            android:textColor="#2196F3"
-            android:textSize="20sp"
-            android:textStyle="bold|italic" />
+            android:textColor="#0E3F6C"
+            android:fontFamily="@font/cafe"
+            android:textSize="18sp" />
 
-        <LinearLayout
-            android:layout_width="142dp"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <View
-                android:id="@+id/view2"
-                android:layout_width="80dp"
-                android:layout_height="5dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginLeft="10dp"
-                android:background="#DCDCDC" />
-        </LinearLayout>
-
+        <View
+            android:id="@+id/view2"
+            android:layout_width="80dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="50dp"
+            android:background="#0E3F6C"
+            android:layout_gravity="top"/>
     </LinearLayout>
 
     <ScrollView
         android:layout_width="320dp"
-        android:layout_height="396dp"
-        android:layout_marginLeft="48.5dp">
+        android:layout_height="0dp"
+        android:layout_weight="5">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -85,104 +75,118 @@
             <EditText
                 android:id="@+id/signup_ower_id"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="48dp"
                 android:background="@drawable/gray_color_box_border"
                 android:color="#2196F3"
                 android:hint="아이디 입력"
-                android:textSize="20dp" />
+                android:paddingStart="15dp"
+                android:fontFamily="@font/eliceregular"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/signup_ower_pwd"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/gray_color_box_border"
                 android:color="#2196F3"
                 android:hint="비밀번호 입력"
-                android:textSize="20dp" />
+                android:paddingStart="15dp"
+                android:fontFamily="@font/eliceregular"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/signup_ower_pwd2"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/gray_color_box_border"
                 android:color="#2196F3"
                 android:hint="확인 비밀번호 입력"
-                android:textSize="20dp" />
+                android:paddingStart="15dp"
+                android:fontFamily="@font/eliceregular"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/signup_ower_num"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/gray_color_box_border"
                 android:color="#2196F3"
                 android:hint="사업자 번호 입력"
-                android:textSize="20dp" />
-
-            <EditText
-                android:id="@+id/signup_owner_corpnum"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/gray_color_box_border"
-                android:color="#2196F3"
-                android:hint="법인 번호 입력"
-                android:textSize="20dp" />
+                android:paddingStart="15dp"
+                android:fontFamily="@font/eliceregular"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/signup_owner_storename"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/gray_color_box_border"
                 android:color="#2196F3"
                 android:hint="가맹점명 입력"
-                android:textSize="20dp" />
+                android:paddingStart="15dp"
+                android:fontFamily="@font/eliceregular"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/signup_owner_storeloc"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/gray_color_box_border"
                 android:color="#2196F3"
                 android:hint="가맹점 위치 입력"
-                android:textSize="20dp" />
+                android:paddingStart="15dp"
+                android:fontFamily="@font/eliceregular"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/signup_ower_ownername"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/gray_color_box_border"
                 android:color="#2196F3"
                 android:hint="가맹점주 입력"
-                android:textSize="20dp" />
+                android:paddingStart="15dp"
+                android:fontFamily="@font/eliceregular"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/signup_ower_storehp"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/gray_color_box_border"
                 android:color="#2196F3"
                 android:hint="가맹점 전화번호 입력"
-                android:textSize="20dp" />
+                android:paddingStart="15dp"
+                android:fontFamily="@font/eliceregular"
+                android:textSize="20sp" />
 
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="377dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:background="@drawable/login_button"
-        android:onClick="SignUp_OwnerRequest"
-        android:text="회원가입"
-        android:textColor="#2196F3"
-        android:textSize="20sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="377dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/signup_button"
+            android:onClick="SignUp_OwnerRequest"
+            android:text="회원가입"
+            android:textColor="#0E3F6C"
+            android:fontFamily="@font/elicebold"
+            android:textSize="20sp" />
+    </LinearLayout>
 
 </LinearLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_seat">
+
+    <fragment
+        android:id="@+id/nav_seat"
+        android:name="com.example.myapplication.owner.ui.seat_manage.SeatManageFragment"
+        android:label="@string/seat_manage"
+        tools:layout="@layout/fragment_owner_seat_manage" />
+
+    <fragment
+        android:id="@+id/nav_menu"
+        android:name="com.example.myapplication.owner.ui.menu_manage.MenuManageFragment"
+        android:label="@string/menu_manage"
+        tools:layout="@layout/fragment_owner_menu_manage" />
+
+    <fragment
+        android:id="@+id/nav_sales"
+        android:name="com.example.myapplication.owner.ui.check_sales.CheckSalesFragment"
+        android:label="@string/check_sales"
+        tools:layout="@layout/fragment_owner_check_sales" />
+</navigation>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@drawable/shop"
-          android:width="180dp"
-          android:height="200dp"
+        android:width="146dp"
+        android:height="146dp"
         />
 </layer-list>
 
