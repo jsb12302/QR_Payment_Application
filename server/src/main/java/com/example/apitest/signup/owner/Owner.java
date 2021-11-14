@@ -21,7 +21,6 @@ public class Owner {
     private String ownerPwd;
     private String ownerPwd2;
     private String ownerNum; //사업자 번호
-    private String corpNum; //법인 번호
     private String storeName; //가맹점명
     private String storeLoc; //가맹점 위치
     private String ownerName; //가맹점주 이름
@@ -32,14 +31,13 @@ public class Owner {
 
 
     public static Owner JoinOwner(String ownerId, String ownerPwd, String ownerPwd2,
-                                  String ownerNum, String corpNum, String storeName,
+                                  String ownerNum, String storeName,
                                   String storeLoc, String ownerName, String storeHP, Role role) {
         Owner owner=new Owner();
         owner.ownerId = ownerId;
         owner.ownerPwd = ownerPwd;
         owner.ownerPwd2 = ownerPwd2;
         owner.ownerNum = ownerNum;
-        owner.corpNum = corpNum;
         owner.storeName = storeName;
         owner.storeLoc = storeLoc;
         owner.ownerName = ownerName;
