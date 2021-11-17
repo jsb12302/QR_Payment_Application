@@ -5,6 +5,11 @@ import com.example.myapplication.message.Message;
 import com.example.myapplication.signup.OwnerSignUpDto;
 import com.example.myapplication.signup.UserSignUpDto;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.*;
 
@@ -22,5 +27,9 @@ public interface HttpService {
     @POST("/login")
     Call<Message> login(@Body LoginRequestDto loginRequestDto);
 
+    @Multipart
+    @POST("/fileUpload")
+    Call<Message> menuRequest(@Part MultipartBody.Part postImg,
+                              @PartMap HashMap<String, RequestBody> data);
 
 }

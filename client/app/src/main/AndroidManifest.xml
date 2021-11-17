@@ -36,13 +36,14 @@
             android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".signup.OwnerSignUpRequest"
             android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".owner.OwnerMain"/>
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="portrait"
             tools:replace="android:screenOrientation"
             android:stateNotNeeded="true">
         </activity>
+        <activity android:name=".owner.OwnerMain"/>
+        <activity android:name=".menu.Menu"/>
 
     </application>
 
