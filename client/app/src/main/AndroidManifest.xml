@@ -31,7 +31,6 @@
         <activity android:name=".user.UserMain"/>
         <activity android:name=".user.qr.ScanQRActivity"/>
         <activity android:name=".user.map.MapActivity"/>
-        <activity android:name=".user.map.MapActivity"/>
         <activity android:name=".user.menu.TabActivity"/>
         <activity android:name=".signup.SignUpUserRequest"
             android:windowSoftInputMode="adjustResize"/>
@@ -44,7 +43,6 @@
             tools:replace="android:screenOrientation"
             android:stateNotNeeded="true">
         </activity>
-        <activity android:name=".owner.OwnerMain"/>
 
     </application>
 
