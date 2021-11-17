@@ -11,6 +11,7 @@ import android.widget.RadioGroup;
 import com.example.myapplication.domain.Role;
 import com.example.myapplication.login.Login;
 import com.example.myapplication.login.LoginRequestDto;
+import com.example.myapplication.menu.Menu;
 import com.example.myapplication.owner.OwnerMain;
 import com.example.myapplication.retrofit2.HttpClient;
 import com.example.myapplication.retrofit2.HttpService;
@@ -100,6 +101,10 @@ public class MainActivity extends AppCompatActivity {
     }
     public void go_signup(View v){
         Intent intent = new Intent(getApplicationContext(), SignUp.class);
+        startActivity(intent);
+    }
+    public void menu(View v){
+        Intent intent = new Intent(getApplicationContext(), Menu.class);
         startActivity(intent);
     }
 }

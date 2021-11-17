@@ -42,6 +42,7 @@
             android:stateNotNeeded="true">
         </activity>
         <activity android:name=".owner.OwnerMain"/>
+        <activity android:name=".menu.Menu"/>
 
     </application>
 
