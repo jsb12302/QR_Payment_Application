@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Response;
 
@@ -68,12 +69,6 @@ public class MenuManageFragment extends Fragment implements View.OnClickListener
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         new Thread(new ConnectGetRunner()).start();
-        prepareData();
-    }
-
-    private void prepareData() {
-
-        //menuList.add(new Menu("1","2","3"));
     }
 
     public class ConnectGetRunner implements Runnable {

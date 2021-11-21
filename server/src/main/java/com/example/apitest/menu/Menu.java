@@ -23,18 +23,19 @@ public class Menu {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    String image; //이미지 임시로 만들어놓음
+    String image; //이미지 경로
     String menuName;
     String menuPrice;
     String menuDesc;
     String loginId;
 
-    public static Menu addMenu(String menuName, String menuPrice, String menuDesc, String loginId) {
+    public static Menu addMenu(String menuName, String menuPrice, String menuDesc, String loginId,String image) {
         Menu menu=new Menu();
         menu.menuName = menuName;
         menu.menuPrice = menuPrice;
         menu.menuDesc = menuDesc;
         menu.loginId = loginId;
+        menu.image=image;
         return menu;
     }
 

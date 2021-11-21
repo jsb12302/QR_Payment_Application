@@ -8,11 +8,12 @@ import lombok.Setter;
 @Setter
 public class MenuDto {
 
-    String image; //이미지 임시로 만들어놓음
+
     String menuName;
     String menuPrice;
     String menuDesc;
     String loginId;
+    String image;
 
     public MenuDto(String menuName, String menuPrice, String menuDesc,String loginId) {
         this.menuName = menuName;
