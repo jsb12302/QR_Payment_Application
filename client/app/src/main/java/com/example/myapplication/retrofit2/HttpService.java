@@ -6,7 +6,6 @@ import com.example.myapplication.login.LoginRequestDto;
 import com.example.myapplication.owner.ui.menu_manage.MenuDto;
 import com.example.myapplication.message.Message;
 import com.example.myapplication.message.Status;
-import com.example.myapplication.owner.ui.menu_manage.MenuImageDto;
 import com.example.myapplication.signup.OwnerSignUpDto;
 import com.example.myapplication.signup.UserSignUpDto;
 
