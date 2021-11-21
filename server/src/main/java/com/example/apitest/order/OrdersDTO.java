@@ -6,7 +6,7 @@ import java.util.Date;
 
 @Getter
 @Setter
-public class OrderDTO {
+public class OrdersDTO {
 
     private String userId;
     private String storeName;
@@ -15,10 +15,10 @@ public class OrderDTO {
     private int menuCount;
     private Date orderDate;
     private int tableNum;
-    private boolean state;
+    private int orderState;
 
-    public OrderDTO(String userId, String storeName, String menuName, int menuPrice,
-                    int menuCount, Date orderDate, int tableNum, boolean state) {
+    public OrdersDTO(String userId, String storeName, String menuName, int menuPrice,
+                     int menuCount, Date orderDate, int tableNum, int orderState) {
         this.userId = userId;
         this.storeName = storeName;
         this.menuName = menuName;
@@ -26,6 +26,6 @@ public class OrderDTO {
         this.menuCount = menuCount;
         this.orderDate = orderDate;
         this.tableNum = tableNum;
-        this.state = state;
+        this.orderState = orderState;
     }
 }

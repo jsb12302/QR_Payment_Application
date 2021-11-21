@@ -4,12 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class OrderController {
-    private final OrderService orderService;
+public class OrdersController {
+    private final OrdersService ordersService;
 
     @Autowired
-    public OrderController(OrderService orderService) {
-        this.orderService = orderService;
+    public OrdersController(OrdersService ordersService) {
+        this.ordersService = ordersService;
     }
 
 }
