@@ -1,4 +1,4 @@
-package com.example.apitest.signup;
+package com.example.apitest.message;
 
 import com.example.apitest.Role;
 import com.fasterxml.jackson.annotation.JsonInclude;

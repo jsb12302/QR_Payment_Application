@@ -1,9 +1,8 @@
-package com.example.apitest.signup.login;
+package com.example.apitest.login;
 
 import com.example.apitest.Role;
 import com.example.apitest.exception.LoginFailException;
-import com.example.apitest.exception.UserIdNotFoundException;
-import com.example.apitest.signup.Message;
+import com.example.apitest.message.Message;
 import com.example.apitest.signup.owner.Owner;
 import com.example.apitest.signup.owner.OwnerRepository;
 import com.example.apitest.signup.user.User;

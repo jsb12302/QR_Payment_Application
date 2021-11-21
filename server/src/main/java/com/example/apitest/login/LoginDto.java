@@ -1,4 +1,4 @@
-package com.example.apitest.signup.login;
+package com.example.apitest.login;
 
 import lombok.Getter;
 import lombok.Setter;

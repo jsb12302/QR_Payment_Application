@@ -2,7 +2,7 @@ package com.example.apitest.signup.user;
 
 import com.example.apitest.exception.EmptyFieldFoundException;
 import com.example.apitest.exception.SameSignUpInfoFoundException;
-import com.example.apitest.signup.Message;
+import com.example.apitest.message.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

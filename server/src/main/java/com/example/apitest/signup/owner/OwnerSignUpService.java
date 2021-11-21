@@ -3,10 +3,9 @@ package com.example.apitest.signup.owner;
 import com.example.apitest.Role;
 import com.example.apitest.exception.EmptyFieldFoundException;
 import com.example.apitest.exception.SameSignUpInfoFoundException;
-import com.example.apitest.signup.Message;
+import com.example.apitest.message.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @Service
 public class OwnerSignUpService {

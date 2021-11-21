@@ -1,9 +1,15 @@
 package com.example.myapplication.retrofit2;
 
+import android.view.Menu;
+
 import com.example.myapplication.login.LoginRequestDto;
+import com.example.myapplication.owner.ui.menu_manage.MenuDto;
 import com.example.myapplication.message.Message;
+import com.example.myapplication.message.Status;
 import com.example.myapplication.signup.OwnerSignUpDto;
 import com.example.myapplication.signup.UserSignUpDto;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.*;
@@ -22,5 +28,9 @@ public interface HttpService {
     @POST("/login")
     Call<Message> login(@Body LoginRequestDto loginRequestDto);
 
+    @POST("/addMenuRequest")
+    Call<Status> addMenu(@Body MenuDto menuDto);
 
+    @POST("/getMenuInfo")
+    Call<List<MenuDto>> getMenu(@Query("loginId") String loginId);
 }
