@@ -26,7 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".login.Login"/>
+        <activity android:name=".owner.ui.menu_manage.AddMenuRequest"/>
         <activity android:name=".signup.SignUp"/>
         <activity android:name=".user.UserMain"/>
         <activity android:name=".user.qr.ScanQRActivity"/>
@@ -36,13 +36,14 @@
             android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".signup.OwnerSignUpRequest"
             android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".owner.OwnerMain"/>
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="portrait"
             tools:replace="android:screenOrientation"
             android:stateNotNeeded="true">
         </activity>
+        <activity android:name=".owner.OwnerMain"/>
+        <activity android:name=".menu.Menu"/>
 
     </application>
 

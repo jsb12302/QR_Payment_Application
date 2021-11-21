@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="@color/white"
+    android:orientation="vertical"
+    tools:context=".owner.ui.menu_manage.MenuManageFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="577dp"
+        android:orientation="vertical">
+
+<!--        <ListView-->
+<!--            android:id="@+id/listView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"/>-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="154dp"
+        android:orientation="vertical">
+
+
+        <Button
+            android:id="@+id/bt_go_menu_page"
+            android:layout_width="377dp"
+            android:layout_height="58dp"
+            android:layout_gravity="center"
+            android:background="@drawable/signup_button"
+            android:clickable="true"
+            android:fontFamily="@font/elicebold"
+            android:onClick="add_menu"
+            android:text="메뉴 추가"
+            android:textColor="#0E3F6C" />
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -30,7 +30,6 @@ public class OwnerSignUpRequest extends AppCompatActivity {
     private String ownerPwd;
     private String ownerPwd2;
     private String ownerNum; //사업자 번호
-    private String corpNum; //법인 번호
     private String storeName; //가맹점명
     private String storeLoc; //가맹점 위치
     private String ownerName; //가맹점주 이름
@@ -42,7 +41,6 @@ public class OwnerSignUpRequest extends AppCompatActivity {
         EditText ownerPwdText = (EditText) findViewById(R.id.signup_ower_pwd);
         EditText ownerPwd2Text = (EditText) findViewById(R.id.signup_ower_pwd2);
         EditText ownerNumText = (EditText) findViewById(R.id.signup_ower_num);
-        EditText ownerCorpNameText = (EditText) findViewById(R.id.signup_owner_corpnum);
         EditText ownerStoreNameText = (EditText) findViewById(R.id.signup_owner_storename);
         EditText ownerStoreLocText = (EditText) findViewById(R.id.signup_owner_storeloc);
         EditText ownerNameText = (EditText) findViewById(R.id.signup_ower_ownername);
@@ -52,7 +50,6 @@ public class OwnerSignUpRequest extends AppCompatActivity {
         ownerPwd = ownerPwdText.getText().toString();
         ownerPwd2=ownerPwd2Text.getText().toString();
         ownerNum=ownerNumText.getText().toString();
-        corpNum=ownerCorpNameText.getText().toString();
         storeName=ownerStoreNameText.getText().toString();
         storeLoc=ownerStoreLocText.getText().toString();
         ownerName=ownerNameText.getText().toString();
@@ -69,8 +66,8 @@ public class OwnerSignUpRequest extends AppCompatActivity {
 
             try {
                 OwnerSignUpDto ownerSignUpDto = new OwnerSignUpDto(
-                        ownerId, ownerPwd, ownerPwd2, ownerNum, corpNum,
-                        storeName, storeLoc, ownerName, storeHP,Role.ROLE_OWNER);
+                        ownerId, ownerPwd, ownerPwd2, ownerNum, storeName,
+                        storeLoc, ownerName, storeHP,Role.ROLE_OWNER);
 
                 Response<Message> loginResponse = httpService.OwnerSignUpRequest(ownerSignUpDto).execute();
                 System.out.println(ownerSignUpDto);
