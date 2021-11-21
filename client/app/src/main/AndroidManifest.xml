@@ -26,7 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".login.Login"/>
+        <activity android:name=".owner.ui.menu_manage.AddMenuRequest"/>
         <activity android:name=".signup.SignUp"/>
         <activity android:name=".user.UserMain"/>
         <activity android:name=".user.qr.ScanQRActivity"/>

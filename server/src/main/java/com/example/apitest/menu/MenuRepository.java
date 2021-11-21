@@ -1,8 +1,11 @@
 package com.example.apitest.menu;
 
-import com.example.apitest.signup.owner.Owner;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface MenuRepository extends JpaRepository<Menu, Long> {
-    Menu findById(String storeMenu);
+import java.util.List;
+
+@Repository
+public interface MenuRepository extends JpaRepository<Menu,Long> {
+    List<Menu> findAllByLoginId(String loginId);
 }

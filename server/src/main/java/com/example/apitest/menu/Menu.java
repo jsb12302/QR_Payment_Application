@@ -1,8 +1,15 @@
 package com.example.apitest.menu;
 
+
 import com.example.apitest.Role;
 import lombok.*;
 import javax.persistence.*;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 
 @Getter
 @Setter
@@ -11,22 +18,23 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Menu {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String storeName;
-    private String menuName;
-    private String path;
-    private String fileName;
+    String image; //이미지 임시로 만들어놓음
+    String menuName;
+    String menuPrice;
+    String menuDesc;
+    String loginId;
 
-    public static Menu JoinMenu(String storeName, String menuName, String path, String fileName) {
-        Menu menu = new Menu();
-        menu.storeName = storeName;
+    public static Menu addMenu(String menuName, String menuPrice, String menuDesc, String loginId) {
+        Menu menu=new Menu();
         menu.menuName = menuName;
-        menu.path = path;
-        menu.fileName = fileName;
-
+        menu.menuPrice = menuPrice;
+        menu.menuDesc = menuDesc;
+        menu.loginId = loginId;
         return menu;
     }
 
