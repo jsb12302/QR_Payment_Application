@@ -21,4 +21,44 @@ public class MenuDto {
         this.menuDesc = menuDesc;
         this.loginId = loginId;
     }
+
+    public String getMenuName() {
+        return menuName;
+    }
+
+    public void setMenuName(String menuName) {
+        this.menuName = menuName;
+    }
+
+    public String getMenuPrice() {
+        return menuPrice;
+    }
+
+    public void setMenuPrice(String menuPrice) {
+        this.menuPrice = menuPrice;
+    }
+
+    public String getMenuDesc() {
+        return menuDesc;
+    }
+
+    public void setMenuDesc(String menuDesc) {
+        this.menuDesc = menuDesc;
+    }
+
+    public String getLoginId() {
+        return loginId;
+    }
+
+    public void setLoginId(String loginId) {
+        this.loginId = loginId;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }

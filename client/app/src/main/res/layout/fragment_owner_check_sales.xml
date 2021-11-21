@@ -52,11 +52,13 @@
         android:layout_gravity="center_horizontal">
 
         <Button
+            android:id="@+id/check_sales"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/signup_button"
+            android:gravity="center"
+            android:onClick="showSale"
             android:text="매출 조회"
-            android:textSize="20sp"
-            android:gravity="center"/>
+            android:textSize="20sp" />
     </LinearLayout>
 </LinearLayout>

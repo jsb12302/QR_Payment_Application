@@ -3,12 +3,14 @@ package com.example.myapplication.retrofit2;
 import android.view.Menu;
 
 import com.example.myapplication.login.LoginRequestDto;
+import com.example.myapplication.owner.ui.check_sales.OrdersDTO;
 import com.example.myapplication.owner.ui.menu_manage.MenuDto;
 import com.example.myapplication.message.Message;
 import com.example.myapplication.message.Status;
 import com.example.myapplication.signup.OwnerSignUpDto;
 import com.example.myapplication.signup.UserSignUpDto;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,6 +45,9 @@ public interface HttpService {
 
     @POST("/getMenuInfo")
     Call<List<MenuDto>> getMenu(@Query("loginId") String loginId);
+
+    @POST("/getOrderDate")
+    Call<List<OrdersDTO>> getTime(@Query("orderDate")Date orderDate);
 
 //    @POST("/getMenuImage") //이미지 파일 까지 가져오기
 //    Call<List<MenuImageDto>> getMenuImage(@Query("loginId") String loginId);
