@@ -61,4 +61,9 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
     implementation 'androidx.navigation:navigation-fragment:2.3.5'
     implementation 'androidx.navigation:navigation-ui:2.3.5'
+
+    implementation group: 'com.squareup.okhttp', name: 'okhttp', version: '2.7.5'
+    implementation 'org.json:json:20190722'
+    compileOnly group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
+
 }

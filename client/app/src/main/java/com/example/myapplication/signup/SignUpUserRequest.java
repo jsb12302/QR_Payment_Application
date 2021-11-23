@@ -12,9 +12,17 @@ import com.example.myapplication.domain.Role;
 import com.example.myapplication.message.Message;
 import com.example.myapplication.retrofit2.HttpClient;
 import com.example.myapplication.retrofit2.HttpService;
+import com.example.myapplication.store.StoreSignUpDto;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.ResponseBody;
 import retrofit2.Response;
 
 

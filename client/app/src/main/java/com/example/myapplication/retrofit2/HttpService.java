@@ -9,6 +9,7 @@ import com.example.myapplication.message.Status;
 import com.example.myapplication.owner.ui.menu_manage.MenuImageDto;
 import com.example.myapplication.signup.OwnerSignUpDto;
 import com.example.myapplication.signup.UserSignUpDto;
+import com.example.myapplication.store.StoreSignUpDto;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,6 +28,9 @@ public interface HttpService {
 
     @POST("/userSignUpRequest")
     Call<Message> UserSignUpRequest(@Body UserSignUpDto userSignUpDto);
+
+    @POST("/storeSignUpRequest") //회원가입할 때 스토어 정보 가입 요청
+    Call<Message> StoreSignUpRequest(@Body StoreSignUpDto storeSignUpDto);
 
     @POST("/ownerSignUpRequest")
     Call<Message> OwnerSignUpRequest(@Body OwnerSignUpDto ownerSignUpDto);

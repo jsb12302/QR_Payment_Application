@@ -43,7 +43,6 @@ public class Store {
         store.storeLongitude = storeLongitude;
         store.storePic = storePic;
         store.ownerNum = ownerNum;
-
         return store;
     }
 }
