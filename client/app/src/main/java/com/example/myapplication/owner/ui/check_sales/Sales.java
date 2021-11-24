@@ -1,40 +1,39 @@
 package com.example.myapplication.owner.ui.check_sales;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Sales {
-    String menuNameS;
-    int menuPriceS;
-    int menuCountS;
+    String menuName;
+    int menuPrice;
+    int menuCount;
 
-    public Sales(String menuNameS,  int menuCountS, int menuPriceS) {
-        this.menuNameS = menuNameS;
-        this.menuPriceS = menuPriceS;
-        this.menuCountS = menuCountS;
+    public Sales(String menuName, int menuPrice, int menuCount) {
+        this.menuName = menuName;
+        this.menuPrice = menuPrice;
+        this.menuCount = menuCount;
     }
 
-    public String getMenuNameS() {
-        return menuNameS;
+    public String getMenuName() {
+        return menuName;
     }
 
-    public void setMenuNameS(String menuNameS) {
-        this.menuNameS = menuNameS;
+    public void setMenuName(String menuName) {
+        this.menuName = menuName;
     }
 
-    public int getMenuPriceS() {
-        return menuPriceS;
+    public int getMenuPrice() {
+        return menuPrice;
     }
 
-    public void setMenuPriceS(int menuPriceS) {
-        this.menuPriceS = menuPriceS;
+    public void setMenuPrice(int menuPrice) {
+        this.menuPrice = menuPrice;
     }
 
-    public int getMenuCountS() {
-        return menuCountS;
+    public int getMenuCount() {
+        return menuCount;
     }
 
-    public void setMenuCountS(int menuCountS) {
-        this.menuCountS = menuCountS;
+    public void setMenuCount(int menuCount) {
+        this.menuCount = menuCount;
     }
-
 }

@@ -10,7 +10,7 @@ import com.example.myapplication.message.Status;
 import com.example.myapplication.signup.OwnerSignUpDto;
 import com.example.myapplication.signup.UserSignUpDto;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,6 +51,7 @@ public interface HttpService {
 
     @POST("/getStoreName")
     Call<OwnerSignUpDto> getStoreName(@Query("loginId") String loginId);
+
 
 //    @POST("/getMenuImage") //이미지 파일 까지 가져오기
 //    Call<List<MenuImageDto>> getMenuImage(@Query("loginId") String loginId);

@@ -1,6 +1,6 @@
 package com.example.myapplication.owner.ui.check_sales;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Orders {
     String userId;

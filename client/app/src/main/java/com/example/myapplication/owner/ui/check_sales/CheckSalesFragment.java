@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
+import java.util.Date;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentOwnerCheckSalesBinding;
@@ -82,14 +82,13 @@ public class CheckSalesFragment extends Fragment implements View.OnClickListener
                 OwnerSignUpDto ownerSignUpDto = storename.body();
 
                 String storeName = ownerSignUpDto.getStoreName();
+                System.out.println(storeName);
                 Response<List<OrdersDTO>> order = httpService.getOrder(storeName).execute();
                 List<OrdersDTO> orderList = order.body();
-                System.out.println(order.body().toString());
                 for(int i=0; i<orderList.size(); i++){
-                    InsertOrderList.add(new Sales(orderList.get(i).getMenuNameO(), orderList.get(i).getMenuCount(),
-                            orderList.get(i).getMenuPriceO()));
+                    InsertOrderList.add(new Sales(orderList.get(i).getMenuName(), orderList.get(i).getMenuCount(),
+                            orderList.get(i).getMenuPrice()));
                 }
-                System.out.printf(InsertOrderList.toString());
             } catch (IOException e) {
                 e.printStackTrace();
             }

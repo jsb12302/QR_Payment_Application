@@ -1,6 +1,6 @@
 package com.example.myapplication.owner.ui.check_sales;
 
-import java.sql.Date;
+import java.util.Date;
 
 import lombok.*;
 
@@ -9,17 +9,17 @@ import lombok.*;
 public class OrdersDTO {
     String userId;
     String storeName;
-    String menuNameO;
-    int menuPriceO;
+    String menuName;
+    int menuPrice;
     int menuCount;
     Date orderDate;
     int tableNum;
 
-    public OrdersDTO(String userId, String storeName, String menuNameO, int menuPriceO, int menuCount, Date orderDate, int tableNum) {
+    public OrdersDTO(String userId, String storeName, String menuName, int menuPrice, int menuCount, Date orderDate, int tableNum) {
         this.userId = userId;
         this.storeName = storeName;
-        this.menuNameO = menuNameO;
-        this.menuPriceO = menuPriceO;
+        this.menuName = menuName;
+        this.menuPrice = menuPrice;
         this.menuCount = menuCount;
         this.orderDate = orderDate;
         this.tableNum = tableNum;
@@ -41,20 +41,20 @@ public class OrdersDTO {
         this.storeName = storeName;
     }
 
-    public String getMenuNameO() {
-        return menuNameO;
+    public String getMenuName() {
+        return menuName;
     }
 
-    public void setMenuNameO(String menuNameO) {
-        this.menuNameO = menuNameO;
+    public void setMenuName(String menuNameO) {
+        this.menuName = menuNameO;
     }
 
-    public int getMenuPriceO() {
-        return menuPriceO;
+    public int getMenuPrice() {
+        return menuPrice;
     }
 
-    public void setMenuPriceO(int menuPriceO) {
-        this.menuPriceO = menuPriceO;
+    public void setMenuPrice(int menuPriceO) {
+        this.menuPrice = menuPriceO;
     }
 
     public int getMenuCount() {

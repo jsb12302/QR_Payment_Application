@@ -9,15 +9,13 @@ import java.util.List;
 @Service
 public class OrdersService {
 
-
     @Autowired
     OrdersRepository ordersRepository;
 
     public List<Orders> findOrder(String storeName){
         List<Orders> allByStoreName = ordersRepository.findAllByStoreName(storeName);
-
         System.out.println(storeName);
-        System.out.println(allByStoreName.size());
+        System.out.println(allByStoreName.get(0).getStoreName()+"/"+ allByStoreName.get(0).getOrderDate());
         return allByStoreName;
     }
 }
