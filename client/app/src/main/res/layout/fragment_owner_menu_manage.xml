@@ -12,19 +12,19 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="577dp"
+        android:layout_height="511dp"
         android:orientation="vertical">
 
-<!--        <ListView-->
-<!--            android:id="@+id/listView"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"/>-->
+        <!--        <ListView-->
+        <!--            android:id="@+id/listView"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"/>-->
 
         <androidx.recyclerview.widget.RecyclerView
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:id="@+id/recyclerView"
+            android:id="@+id/recyclerView_menu"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
     </LinearLayout>
 
     <LinearLayout

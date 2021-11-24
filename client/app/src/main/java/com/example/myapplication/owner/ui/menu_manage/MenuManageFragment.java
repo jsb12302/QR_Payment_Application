@@ -56,7 +56,7 @@ public class MenuManageFragment extends Fragment implements View.OnClickListener
             }
         });
 
-        recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
+        recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView_menu);
         recyclerView.setHasFixedSize(true);
         mAdapter = new MenuAdapter(InsertMenuList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
