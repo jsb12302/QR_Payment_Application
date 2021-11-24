@@ -1,15 +1,19 @@
 package com.example.myapplication;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 
 import com.example.myapplication.domain.Role;
+import com.example.myapplication.login.ChangePwdConfirm;
 import com.example.myapplication.login.LoginRequestDto;
 import com.example.myapplication.menu.Menu;
 import com.example.myapplication.owner.OwnerMain;
@@ -37,8 +41,6 @@ public class MainActivity extends AppCompatActivity {
     public static Context context_main; // context 변수 선언
     public String var; // 다른 Activity에서 접근할 변수
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -63,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
 
     public void go_login(View v) throws JSONException {
@@ -98,9 +101,27 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             }catch (Exception e){
-                System.out.println("오류");
+
+                Handler handler=new Handler(Looper.getMainLooper());
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+                        builder.setTitle("LoginFailed").setMessage("올바르지 않은 회원정보 입니다."+"\n"+"다시 입력 해주세요.");
+
+                        AlertDialog alertDialog = builder.create();
+                        alertDialog.show();
+                    }
+                },0);
+
             }
         }
+    }
+
+    public void change_pwd(View v){
+        Intent intent = new Intent(getApplicationContext(), ChangePwdConfirm.class);
+        startActivity(intent);
     }
 
     public void go_signup(View v){

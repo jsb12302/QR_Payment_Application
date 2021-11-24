@@ -1,12 +1,17 @@
 package com.example.myapplication.signup;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.domain.Role;
 import com.example.myapplication.message.Message;
@@ -68,12 +73,24 @@ public class SignUpUserRequest extends AppCompatActivity {
                     userId, userPwd, userPwd2, userName, userHP, Role.ROLE_USER);
             try {
                 Response<Message> loginResponse = httpService.UserSignUpRequest(userSignUpDto).execute();
-                System.out.println(userSignUpDto);
-                Message message=loginResponse.body();
-                System.out.println(message.getMessage());
-
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
             }catch (IOException e){
                 e.printStackTrace();
+
+                Handler handler=new Handler(Looper.getMainLooper());
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(SignUpUserRequest.this);
+
+                        builder.setTitle("SignUP Failed").setMessage("중복된 회원 정보 입니다."+"\n"+"다시 입력 해주세요.");
+
+                        AlertDialog alertDialog = builder.create();
+                        alertDialog.show();
+                    }
+                },0);
+
             }
         }
     }

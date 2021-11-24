@@ -26,11 +26,26 @@ public class LoginController {
         return message;
     }
 
+    @PostMapping("/confirmInfo")
+    @ResponseBody
+    public Boolean confirm(@RequestParam String loginId,@RequestParam String storeHP,
+                           @RequestParam Role role){
+        return loginService.ConfirmService(loginId,storeHP,role);
+    }
+
+    @PostMapping("/changePwd")
+    @ResponseBody
+    public Message changePwd(@RequestParam String changePwd,@RequestParam Role role){
+        loginService.ChangePwd(changePwd,role);
+        Message message=new Message();
+        message.setMessage("비밀번호 변경 성공");
+        return message;
+    }
+
     @ExceptionHandler({LoginFailException.class, UserIdNotFoundException.class})
     @ResponseStatus
     public void handleSignUpException(Exception e) {
         Message message = new Message();
         message.setMessage(e.getMessage());
-
     }
 }

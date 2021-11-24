@@ -26,6 +26,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".login.ChangePwd"/>
+        <activity android:name=".login.ChangePwdConfirm"/>
         <activity android:name=".owner.ui.menu_manage.AddMenuRequest"/>
         <activity android:name=".signup.SignUp"/>
         <activity android:name=".user.UserMain"/>

@@ -1,15 +1,21 @@
 package com.example.myapplication.signup;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.domain.Role;
 import com.example.myapplication.message.Message;
+import com.example.myapplication.owner.OwnerMain;
 import com.example.myapplication.retrofit2.HttpClient;
 import com.example.myapplication.retrofit2.HttpService;
 import com.example.myapplication.store.StoreSignUpDto;
@@ -141,11 +147,25 @@ public class OwnerSignUpRequest extends AppCompatActivity {
                         ownerId,storeName,storeHP,storeLoc,storeLatitude,storeLongitude,null,ownerNum);
                 Response<Message> loginResponse = httpService.OwnerSignUpRequest(ownerSignUpDto).execute();
                 Response<Message> StoreSignUpResponse=httpService.StoreSignUpRequest(storeSignUpDto).execute();
-                System.out.println(ownerSignUpDto);
-                Message message=loginResponse.body();
-                System.out.println(message.getMessage());
+
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
 
             }catch (IOException e){
+
+                Handler handler=new Handler(Looper.getMainLooper());
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(OwnerSignUpRequest.this);
+
+                        builder.setTitle("SignUP Failed").setMessage("중복된 회원 정보 입니다."+"\n"+"다시 입력 해주세요.");
+
+                        AlertDialog alertDialog = builder.create();
+                        alertDialog.show();
+                    }
+                },0);
+
                 e.printStackTrace();
             }
         }

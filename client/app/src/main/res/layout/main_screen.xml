@@ -110,8 +110,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="#00ff0000"
-                android:text="비밀번호 찾기"
-                android:onClick="menu"
+                android:text="비밀번호 재설정"
+                android:onClick="change_pwd"
                 android:fontFamily="@font/elicebold"
                 android:textColor="#0E3F6C"
                 android:textSize="15sp" />
