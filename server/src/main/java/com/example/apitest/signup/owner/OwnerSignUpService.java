@@ -45,4 +45,9 @@ public class OwnerSignUpService {
         }
 
     }
+
+    public Owner findStoreName(String loginId){
+        Owner owner = ownerRepository.findByOwnerId(loginId);
+        return owner;
+    }
 }

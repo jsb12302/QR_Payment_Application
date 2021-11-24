@@ -3,7 +3,7 @@ package com.example.apitest.order;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 
 @Getter
 @Setter
@@ -16,16 +16,16 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String userId;
-    private String storeName;
-    private String menuName;
-    private int menuPrice;
-    private int menuCount;
-    private Date orderDate;
-    private int tableNum;
+    String userId;
+    String storeName;
+    String menuName;
+    int menuPrice;
+    int menuCount;
+    Date orderDate;
+    int tableNum;
 
     @ColumnDefault("0")
-    private int orderState;
+    int orderState;
 
     public static Orders addOrders(String userId, String storeName, String menuName, int menuPrice,
                                   int menuCount, Date orderDate, int tableNum, int orderState) {

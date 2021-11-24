@@ -46,8 +46,11 @@ public interface HttpService {
     @POST("/getMenuInfo")
     Call<List<MenuDto>> getMenu(@Query("loginId") String loginId);
 
-    @POST("/getOrderDate")
-    Call<List<OrdersDTO>> getTime(@Query("orderDate")Date orderDate);
+    @POST("/getOrder")
+    Call<List<OrdersDTO>> getOrder(@Query("storeName")String storeName);
+
+    @POST("/getStoreName")
+    Call<OwnerSignUpDto> getStoreName(@Query("loginId") String loginId);
 
 //    @POST("/getMenuImage") //이미지 파일 까지 가져오기
 //    Call<List<MenuImageDto>> getMenuImage(@Query("loginId") String loginId);

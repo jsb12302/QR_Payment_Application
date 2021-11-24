@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 
 public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHolder> {
-    private ArrayList<Orders> mDataset;
+    private ArrayList<Sales> mDataset;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView menuName_c, menuCount_c, menuPrice_c;
@@ -27,7 +27,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
         }
     }
 
-    public OrdersAdapter(ArrayList<Orders> myData) {this.mDataset = myData;}
+    public OrdersAdapter(ArrayList<Sales> myData) {this.mDataset = myData;}
 
     @NonNull
     @Override
@@ -39,9 +39,9 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.menuName_c.setText(mDataset.get(position).getMenuNameO());
-        holder.menuCount_c.setText(mDataset.get(position).getMenuCount());
-        holder.menuPrice_c.setText(mDataset.get(position).getMenuPriceO());
+        holder.menuName_c.setText(mDataset.get(position).getMenuNameS());
+        holder.menuCount_c.setText(mDataset.get(position).getMenuCountS());
+        holder.menuPrice_c.setText(mDataset.get(position).getMenuPriceS());
     }
 
     @Override

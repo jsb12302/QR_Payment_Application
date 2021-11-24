@@ -8,15 +8,16 @@ import java.util.List;
 
 @Service
 public class OrdersService {
-    private final OrdersRepository ordersRepository;
+
 
     @Autowired
-    public OrdersService(OrdersRepository ordersRepository) {
-        this.ordersRepository = ordersRepository;
-    }
+    OrdersRepository ordersRepository;
 
-    public List<Orders> findOrder(Date orderDate){
-        List<Orders> allByOrderDate = ordersRepository.findAllByOrderDate(orderDate);
-        return allByOrderDate;
+    public List<Orders> findOrder(String storeName){
+        List<Orders> allByStoreName = ordersRepository.findAllByStoreName(storeName);
+
+        System.out.println(storeName);
+        System.out.println(allByStoreName.size());
+        return allByStoreName;
     }
 }
