@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="회원가입"
+            android:text="@string/signUp"
             android:textColor="#0E3F6C"
             android:fontFamily="@font/elicebold"
             android:textSize="20sp" />
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="해당되는 버튼을 클릭하세요"
+            android:text="@string/btn_choice_text"
             android:textColor="#0E3F6C"
             android:fontFamily="@font/elicebold"
             android:textSize="20sp" />
@@ -60,7 +60,7 @@
             android:onClick="go_owner_sign_page"
             android:layout_margin="10dp"
             android:paddingTop="20dp"
-            android:text="가맹점주"
+            android:text="@string/owner"
             android:textColor="#0E3F6C"
             android:fontFamily="@font/elicebold"
             android:textSize="20sp" />
@@ -74,7 +74,7 @@
             android:onClick="go_user_sign_page"
             android:layout_margin="10dp"
             android:paddingTop="20dp"
-            android:text="일반 사용자"
+            android:text="@string/user"
             android:textColor="#0E3F6C"
             android:fontFamily="@font/elicebold"
             android:textSize="20sp"/>

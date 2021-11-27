@@ -56,11 +56,9 @@ public class SignUpUserRequest extends AppCompatActivity {
         @Override
         public void run() {
             HttpService httpService = HttpClient.getApiService();
-
+            UserSignUpDto userSignUpDto = new UserSignUpDto(
+                    userId, userPwd, userPwd2, userName, userHP, Role.ROLE_USER);
             try {
-                UserSignUpDto userSignUpDto = new UserSignUpDto(
-                        userId, userPwd, userPwd2, userName, userHP, Role.ROLE_USER);
-
                 Response<Message> loginResponse = httpService.UserSignUpRequest(userSignUpDto).execute();
                 System.out.println(userSignUpDto);
                 Message message=loginResponse.body();

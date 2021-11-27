@@ -1,6 +1,6 @@
 package com.example.apitest.menu;
 
-import lombok.Builder;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,16 +8,15 @@ import lombok.Setter;
 @Setter
 public class MenuDTO {
 
-    private String storeName;
-    private String menuName;
-    private String path;
-    private String fileName;
+    String menuName;
+    String menuPrice;
+    String menuDesc;
+    String loginId;
 
-    @Builder
-    public MenuDTO(String storeName, String menuName, String path, String fileName) {
-        this.storeName = storeName;
+    public MenuDTO(String menuName, String menuPrice, String menuDesc, String loginId) {
         this.menuName = menuName;
-        this.path = path;
-        this.fileName = fileName;
+        this.menuPrice = menuPrice;
+        this.menuDesc = menuDesc;
+        this.loginId = loginId;
     }
 }

@@ -1,12 +1,10 @@
-package com.example.apitest.signup.login;
+package com.example.apitest.login;
 
 
 import com.example.apitest.Role;
-import com.example.apitest.exception.EmptyFieldFoundException;
 import com.example.apitest.exception.LoginFailException;
-import com.example.apitest.exception.SameSignUpInfoFoundException;
 import com.example.apitest.exception.UserIdNotFoundException;
-import com.example.apitest.signup.Message;
+import com.example.apitest.message.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
