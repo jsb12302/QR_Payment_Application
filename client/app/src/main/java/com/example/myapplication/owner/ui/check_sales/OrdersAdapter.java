@@ -40,8 +40,8 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.menuName_c.setText(mDataset.get(position).getMenuName());
-        holder.menuCount_c.setText(String.valueOf(mDataset.get(position).getMenuCount()));
-        holder.menuPrice_c.setText(String.valueOf(mDataset.get(position).getMenuPrice()));
+        holder.menuCount_c.setText(String.valueOf(mDataset.get(position).getMenuPrice()));
+        holder.menuPrice_c.setText(String.valueOf(mDataset.get(position).getMenuCount()));
     }
 
     @Override
