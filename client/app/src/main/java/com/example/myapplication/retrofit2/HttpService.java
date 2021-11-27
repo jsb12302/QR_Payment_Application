@@ -1,20 +1,26 @@
 package com.example.myapplication.retrofit2;
 
 import com.example.myapplication.domain.Role;
+import android.view.Menu;
+
 import com.example.myapplication.login.LoginRequestDto;
 import com.example.myapplication.owner.ui.check_sales.OrdersDTO;
+import com.example.myapplication.owner.ui.menu_manage.MenuDto;
 import com.example.myapplication.owner.ui.menu_manage.MenuDto;
 import com.example.myapplication.message.Message;
 import com.example.myapplication.message.Status;
 import com.example.myapplication.signup.OwnerSignUpDto;
 import com.example.myapplication.signup.UserSignUpDto;
 import com.example.myapplication.store.StoreSignUpDto;
+import com.example.myapplication.user.map.Stores;
 
 import java.util.HashMap;
 import java.util.List;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.*;
@@ -64,4 +70,8 @@ public interface HttpService {
 
 //    @POST("/getMenuImage") //이미지 파일 까지 가져오기
 //    Call<List<MenuImageDto>> getMenuImage(@Query("loginId") String loginId);
+
+    @POST("/getStoreInfo")
+    Call<List<Stores>> getStore();
+
 }

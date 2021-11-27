@@ -3,6 +3,8 @@ package com.example.apitest.store;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class StoreService {
 
@@ -25,5 +27,9 @@ public class StoreService {
     public Store findStoreName(String loginId){
         Store store = storeRepository.findByOwnerId(loginId);
         return store;
+    }
+
+    public List<Store> findStore() {
+        return storeRepository.findAll();
     }
 }

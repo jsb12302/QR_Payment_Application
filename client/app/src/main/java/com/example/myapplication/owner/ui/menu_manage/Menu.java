@@ -2,7 +2,6 @@ package com.example.myapplication.owner.ui.menu_manage;
 
 public class Menu {
 
-
     String menuName;
     String menuPrice;
     String menuDesc;

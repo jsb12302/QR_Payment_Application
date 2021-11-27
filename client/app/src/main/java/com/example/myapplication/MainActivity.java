@@ -128,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), SignUp.class);
         startActivity(intent);
     }
+
     public void menu(View v){
         Intent intent = new Intent(getApplicationContext(), Menu.class);
         startActivity(intent);

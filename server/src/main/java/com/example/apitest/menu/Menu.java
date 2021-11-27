@@ -18,7 +18,6 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Menu {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

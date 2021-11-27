@@ -94,16 +94,21 @@
         <entry key="..\:/Users/rlarl/Desktop/mobile_project/android/client/app/src/main/res/layout/user_main.xml" value="0.2046875" />
         <entry key="..\:/Users/rlarl/Desktop/mobile_project/client/app/src/main/res/layout/user_main.xml" value="0.327445652173913" />
         <entry key="..\:/android/client/app/src/main/res/drawable/border.xml" value="0.22083333333333333" />
+        <entry key="..\:/android/client/app/src/main/res/drawable/clickmarker_resize.xml" value="0.2171875" />
         <entry key="..\:/android/client/app/src/main/res/drawable/gray_color_box_border.xml" value="0.31296296296296294" />
         <entry key="..\:/android/client/app/src/main/res/drawable/key_resize.xml" value="0.38229166666666664" />
         <entry key="..\:/android/client/app/src/main/res/drawable/login_box.xml" value="0.22135416666666666" />
         <entry key="..\:/android/client/app/src/main/res/drawable/login_button.xml" value="0.38229166666666664" />
         <entry key="..\:/android/client/app/src/main/res/drawable/man_resize.xml" value="0.38229166666666664" />
+        <entry key="..\:/android/client/app/src/main/res/drawable/marker_resize.xml" value="0.2171875" />
         <entry key="..\:/android/client/app/src/main/res/drawable/round_box.xml" value="0.38229166666666664" />
+        <entry key="..\:/android/client/app/src/main/res/drawable/search_bar.xml" value="0.38229166666666664" />
         <entry key="..\:/android/client/app/src/main/res/drawable/select_usertype.xml" value="0.38229166666666664" />
         <entry key="..\:/android/client/app/src/main/res/drawable/signup_button.xml" value="0.38229166666666664" />
         <entry key="..\:/android/client/app/src/main/res/drawable/signup_shop_pic.xml" value="0.38229166666666664" />
         <entry key="..\:/android/client/app/src/main/res/drawable/signup_user_pic.xml" value="0.38229166666666664" />
+        <entry key="..\:/android/client/app/src/main/res/drawable/store_info.xml" value="0.2171875" />
+        <entry key="..\:/android/client/app/src/main/res/drawable/store_info_bar.xml" value="0.38229166666666664" />
         <entry key="..\:/android/client/app/src/main/res/drawable/user_type_box.xml" value="0.22135416666666666" />
         <entry key="..\:/android/client/app/src/main/res/drawable/user_type_button_unchecked.xml" value="0.22135416666666666" />
         <entry key="..\:/android/client/app/src/main/res/drawable/user_type_selection_button.xml" value="0.38229166666666664" />
@@ -111,15 +116,34 @@
         <entry key="..\:/android/client/app/src/main/res/font-v26/font.xml" value="0.31296296296296294" />
         <entry key="..\:/android/client/app/src/main/res/font/font.xml" value="0.31296296296296294" />
         <entry key="..\:/android/client/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
+        <entry key="..\:/android/client/app/src/main/res/layout/add_menu.xml" value="0.1" />
+        <entry key="..\:/android/client/app/src/main/res/layout/app_bar_main.xml" value="0.18055555555555555" />
+        <entry key="..\:/android/client/app/src/main/res/layout/basket_list.xml" value="0.2046875" />
+        <entry key="..\:/android/client/app/src/main/res/layout/content_main.xml" value="0.18055555555555555" />
+        <entry key="..\:/android/client/app/src/main/res/layout/fragment_owner_check_sales.xml" value="0.18055555555555555" />
+        <entry key="..\:/android/client/app/src/main/res/layout/fragment_owner_menu_manage.xml" value="0.36614583333333334" />
+        <entry key="..\:/android/client/app/src/main/res/layout/fragment_owner_seat_manage.xml" value="0.36614583333333334" />
+        <entry key="..\:/android/client/app/src/main/res/layout/list.xml" value="0.36614583333333334" />
         <entry key="..\:/android/client/app/src/main/res/layout/load_img_test.xml" value="0.1" />
         <entry key="..\:/android/client/app/src/main/res/layout/login.xml" value="0.1675925925925926" />
-        <entry key="..\:/android/client/app/src/main/res/layout/main_screen.xml" value="0.33" />
+        <entry key="..\:/android/client/app/src/main/res/layout/main_screen.xml" value="0.25" />
+        <entry key="..\:/android/client/app/src/main/res/layout/menu_list.xml" value="0.36614583333333334" />
         <entry key="..\:/android/client/app/src/main/res/layout/menu_test.xml" value="0.2046875" />
+        <entry key="..\:/android/client/app/src/main/res/layout/nav_header_main.xml" value="0.25" />
         <entry key="..\:/android/client/app/src/main/res/layout/owner_main.xml" value="0.36614583333333334" />
-        <entry key="..\:/android/client/app/src/main/res/layout/signup.xml" value="0.2074074074074074" />
+        <entry key="..\:/android/client/app/src/main/res/layout/search_bar.xml" value="0.36614583333333334" />
+        <entry key="..\:/android/client/app/src/main/res/layout/search_shop.xml" value="0.33" />
+        <entry key="..\:/android/client/app/src/main/res/layout/select_shop.xml" value="0.33" />
+        <entry key="..\:/android/client/app/src/main/res/layout/show_menu.xml" value="0.2379746835443038" />
+        <entry key="..\:/android/client/app/src/main/res/layout/signup.xml" value="0.33" />
         <entry key="..\:/android/client/app/src/main/res/layout/signup_owner.xml" value="0.25" />
         <entry key="..\:/android/client/app/src/main/res/layout/signup_user.xml" value="0.2074074074074074" />
-        <entry key="..\:/android/client/app/src/main/res/layout/user_main.xml" value="0.2046875" />
+        <entry key="..\:/android/client/app/src/main/res/layout/store_info.xml" value="0.36614583333333334" />
+        <entry key="..\:/android/client/app/src/main/res/layout/test_activity.xml" value="0.36614583333333334" />
+        <entry key="..\:/android/client/app/src/main/res/layout/test_main.xml" value="0.25" />
+        <entry key="..\:/android/client/app/src/main/res/layout/user_main.xml" value="0.33" />
+        <entry key="..\:/android/client/app/src/main/res/menu/drawerlayout.xml" value="0.36614583333333334" />
+        <entry key="..\:/android/client/app/src/main/res/menu/select_shop_menu.xml" value="0.36614583333333334" />
       </map>
     </option>
   </component>

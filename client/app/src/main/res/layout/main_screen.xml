@@ -42,7 +42,7 @@
                 android:background="@drawable/user_type_button"
                 android:textAlignment="center"
                 android:button="@null"
-                android:text="가맹점주"
+                android:text="@string/owner"
                 android:fontFamily="@font/elicebold"
                 android:textColor="#0E3F6C"/>
 
@@ -53,7 +53,7 @@
                 android:background="@drawable/user_type_button"
                 android:textAlignment="center"
                 android:button="@null"
-                android:text="일반사용자"
+                android:text="@string/user"
                 android:fontFamily="@font/elicebold"
                 android:textColor="#0E3F6C"/>
 
@@ -70,7 +70,7 @@
             android:paddingStart="15dp"
             android:drawableLeft="@drawable/man_user"
             android:drawablePadding="10dp"
-            android:hint="가맹점주 아이디 입력"
+            android:hint="@string/owner_id_hint"
             android:textSize="18sp" />
 
         <EditText
@@ -84,7 +84,7 @@
             android:paddingStart="15dp"
             android:drawableLeft="@drawable/door_key"
             android:drawablePadding="10dp"
-            android:hint="비밀번호 입력"
+            android:hint="@string/pwd_hint"
             android:textSize="18sp" />
 
         <Button
@@ -94,7 +94,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/login_button"
             android:onClick="go_login"
-            android:text="로그인"
+            android:text="@string/login_hint"
             android:fontFamily="@font/elicebold"
             android:textSize="20sp" />
 
@@ -123,7 +123,7 @@
                 android:layout_marginTop="5dp"
                 android:background="#00ff0000"
                 android:onClick="go_signup"
-                android:text="회원가입"
+                android:text="@string/signUp"
                 android:fontFamily="@font/elicebold"
                 android:textColor="#0E3F6C"
                 android:textSize="15sp" />

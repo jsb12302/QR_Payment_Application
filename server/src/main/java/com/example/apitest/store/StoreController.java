@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 @Controller
 public class StoreController {
 
@@ -28,4 +30,12 @@ public class StoreController {
     public Store returnStore(@RequestParam String loginId) {
         return storeService.findStoreName(loginId);
     }
+}
+
+    @PostMapping("/getStoreInfo")
+    @ResponseBody
+    public List<Store> getStoreInfo() {
+        return storeService.findStore();
+    }
+
 }
