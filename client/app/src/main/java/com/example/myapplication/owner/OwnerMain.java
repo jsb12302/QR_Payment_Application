@@ -62,7 +62,7 @@ public class OwnerMain extends AppCompatActivity {
         String month_string = Integer.toString(month+1);
         String day_string = Integer.toString(day);
         String year_string = Integer.toString(year);
-        String dateMessage = (month_string + "/" + day_string + "/" + year_string);
+        String dateMessage = (year_string+"-"+month_string+"-"+day_string);
 
         Toast.makeText(this,"Date: "+dateMessage,Toast.LENGTH_SHORT).show();
         EditText text = (EditText) findViewById(R.id.check_date);

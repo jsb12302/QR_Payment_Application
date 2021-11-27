@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class OwnerSignUpController {
 
@@ -22,9 +24,19 @@ public class OwnerSignUpController {
         return message;
     }
 
+    @PostMapping("/getStoreName")
+    @ResponseBody
+    public Owner returnOwner(@RequestParam String loginId){
+        return ownerSignUpService.findStoreName(loginId);
+    }
+
+
+
     @ExceptionHandler({EmptyFieldFoundException.class, SameSignUpInfoFoundException.class})
     public void handleSignUpException(Exception e) {
         Message message = new Message();
         message.setMessage(e.getMessage());
     }
+
+
 }

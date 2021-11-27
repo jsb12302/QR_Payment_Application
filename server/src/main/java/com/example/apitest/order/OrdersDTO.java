@@ -8,14 +8,14 @@ import java.util.Date;
 @Setter
 public class OrdersDTO {
 
-    private String userId;
-    private String storeName;
-    private String menuName;
-    private int menuPrice;
-    private int menuCount;
-    private Date orderDate;
-    private int tableNum;
-    private int orderState;
+    String userId;
+    String storeName;
+    String menuName;
+    int menuPrice;
+    int menuCount;
+    Date orderDate;
+    int tableNum;
+    int orderState;
 
     public OrdersDTO(String userId, String storeName, String menuName, int menuPrice,
                      int menuCount, Date orderDate, int tableNum, int orderState) {

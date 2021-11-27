@@ -1,6 +1,5 @@
 package com.example.myapplication.signup;
 
-
 import com.example.myapplication.domain.Role;
 
 public class OwnerSignUpDto {
@@ -16,5 +15,9 @@ public class OwnerSignUpDto {
         this.ownerPwd = ownerPwd;
         this.storeHP = storeHP;
         this.role=role;
+    }
+
+    public String getStoreName() {
+        return storeName;
     }
 }
