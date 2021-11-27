@@ -17,9 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentOwnerCheckSalesBinding;
@@ -27,6 +25,7 @@ import com.example.myapplication.owner.ui.menu_manage.MenuDto;
 import com.example.myapplication.retrofit2.HttpClient;
 import com.example.myapplication.retrofit2.HttpService;
 import com.example.myapplication.signup.OwnerSignUpDto;
+import com.example.myapplication.store.StoreSignUpDto;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -94,9 +93,9 @@ public class CheckSalesFragment extends Fragment implements View.OnClickListener
             InsertOrderList.clear();
             HttpService httpService = HttpClient.getApiService();
             try {
-                Response<OwnerSignUpDto> storename = httpService.getStoreName(loginId).execute();
-                OwnerSignUpDto ownerSignUpDto = storename.body();
-                String storeName = ownerSignUpDto.getStoreName();
+                Response<StoreSignUpDto> storenames = httpService.getStoreName(loginId).execute();
+                StoreSignUpDto storeSignUpDto = storenames.body();
+                String storeName = storeSignUpDto.getStoreName();
                 Response<List<OrdersDTO>> order = httpService.getOrder(storeName).execute();
                 List<OrdersDTO> orderList = order.body();
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

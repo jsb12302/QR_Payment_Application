@@ -21,4 +21,9 @@ public class StoreService {
                 storeDTO.getStoreLoc(),storeDTO.getStoreLatitude(),storeDTO.getStoreLongitude(),
                 storeDTO.getStorePic(),storeDTO.getOwnerNum());
     }
+
+    public Store findStoreName(String loginId){
+        Store store = storeRepository.findByOwnerId(loginId);
+        return store;
+    }
 }

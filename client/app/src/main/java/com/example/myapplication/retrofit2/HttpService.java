@@ -6,18 +6,15 @@ import com.example.myapplication.owner.ui.check_sales.OrdersDTO;
 import com.example.myapplication.owner.ui.menu_manage.MenuDto;
 import com.example.myapplication.message.Message;
 import com.example.myapplication.message.Status;
-import com.example.myapplication.owner.ui.menu_manage.MenuDto;
 import com.example.myapplication.signup.OwnerSignUpDto;
 import com.example.myapplication.signup.UserSignUpDto;
 import com.example.myapplication.store.StoreSignUpDto;
 
-import java.sql.Date;
 import java.util.HashMap;
 import java.util.List;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.*;
@@ -54,7 +51,7 @@ public interface HttpService {
     Call<List<OrdersDTO>> getOrder(@Query("storeName")String storeName);
 
     @POST("/getStoreName")
-    Call<OwnerSignUpDto> getStoreName(@Query("loginId") String loginId);
+    Call<StoreSignUpDto> getStoreName(@Query("loginId") String loginId);
 
 
     @POST("/confirmInfo") //비밀번호 변경 시 아이디, 가게 전화번호 확인

@@ -24,14 +24,6 @@ public class OwnerSignUpController {
         return message;
     }
 
-    @PostMapping("/getStoreName")
-    @ResponseBody
-    public Owner returnOwner(@RequestParam String loginId){
-        return ownerSignUpService.findStoreName(loginId);
-    }
-
-
-
     @ExceptionHandler({EmptyFieldFoundException.class, SameSignUpInfoFoundException.class})
     public void handleSignUpException(Exception e) {
         Message message = new Message();
