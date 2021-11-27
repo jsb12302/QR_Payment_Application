@@ -16,8 +16,4 @@ public class OwnerSignUpDto {
         this.storeHP = storeHP;
         this.role=role;
     }
-
-    public String getStoreName() {
-        return storeName;
-    }
 }

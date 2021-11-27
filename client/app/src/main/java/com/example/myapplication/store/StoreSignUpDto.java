@@ -21,4 +21,8 @@ public class StoreSignUpDto {
         this.storePic = storePic;
         this.ownerNum = ownerNum;
     }
+
+    public String getStoreName() {
+        return storeName;
+    }
 }
