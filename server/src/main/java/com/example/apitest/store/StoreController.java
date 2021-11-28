@@ -30,7 +30,6 @@ public class StoreController {
     public Store returnStore(@RequestParam String loginId) {
         return storeService.findStoreName(loginId);
     }
-}
 
     @PostMapping("/getStoreInfo")
     @ResponseBody

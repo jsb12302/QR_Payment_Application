@@ -125,8 +125,8 @@ public class OwnerSignUpRequest extends AppCompatActivity {
             JSONObject jsonObject = jArray.getJSONObject(0);
             JSONObject jsonObject2 = jsonObject.getJSONObject("address");
 
-            storeLatitude=jsonObject2.getDouble("x");
-            storeLongitude=jsonObject2.getDouble("y");
+            storeLatitude=jsonObject2.getDouble("y");
+            storeLongitude=jsonObject2.getDouble("x");
             System.out.println(storeLatitude);
             System.out.println(storeLongitude);
         }
