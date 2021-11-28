@@ -148,8 +148,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                 storeInfo_layout.setVisibility(View.INVISIBLE);
             }
         });
-
         for (int i = 0; i < storeList.size(); i++) {
+            System.out.println(storeList.get(i).storeName);
             Marker mk = new Marker();
             mk.setPosition(new LatLng(storeList.get(i).storeLatitude, storeList.get(i).storeLongitude));
             mk.setMap(naverMap);
