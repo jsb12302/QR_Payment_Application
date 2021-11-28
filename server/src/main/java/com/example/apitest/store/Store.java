@@ -25,9 +25,9 @@ public class Store {
     String ownerId;
     String storeName;
     String storeHp;
-    String storeLoc;
-    Double storeLatitude;
-    Double storeLongitude;
+    String storeLoc;        // 가게 주소
+    Double storeLatitude;   // 가게 위도
+    Double storeLongitude;  // 가게 경도
     String storePic;
     String ownerNum;
 
