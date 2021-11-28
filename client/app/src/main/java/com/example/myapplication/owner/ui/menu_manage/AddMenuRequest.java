@@ -18,6 +18,7 @@ import com.example.myapplication.message.Message;
 import com.example.myapplication.message.Status;
 import com.example.myapplication.retrofit2.HttpClient;
 import com.example.myapplication.retrofit2.HttpService;
+import com.example.myapplication.user.UserMain;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -160,6 +161,7 @@ public class AddMenuRequest extends AppCompatActivity{
         menuDesc=menuDescText.getText().toString();
 
         new Thread(new ConnectRunner()).start();
+
     }
 
 }

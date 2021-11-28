@@ -1,22 +1,46 @@
 package com.example.myapplication.owner.ui.menu_manage;
 
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
+import com.example.myapplication.message.Message;
+import com.example.myapplication.retrofit2.HttpClient;
+import com.example.myapplication.retrofit2.HttpService;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 
+import retrofit2.Response;
+
 public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MyViewHolder>{
+
     private ArrayList<Menu> mDataset;
+    public static String selectMenuName;
+    public static Bitmap globalBitmap;
+    String loginId=((MainActivity)MainActivity.context_main).var; //로그인 아이디 가져오기
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView menuName, menuPrice, menuDesc;
+        public ImageView menuImage;
 
         //ViewHolder
         public MyViewHolder(View view) {
@@ -24,6 +48,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MyViewHolder>{
             menuName = (TextView) view.findViewById(R.id.menuName);
             menuPrice = (TextView) view.findViewById(R.id.menuPrice);
             menuDesc = (TextView) view.findViewById(R.id.menuDesc);
+            menuImage= (ImageView) view.findViewById(R.id.ListMenuImage);
         }
     }
 
@@ -45,17 +70,68 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MyViewHolder>{
         holder.menuName.setText(mDataset.get(position).getMenuName());
         holder.menuPrice.setText(mDataset.get(position).getMenuPrice());
         holder.menuDesc.setText(mDataset.get(position).getMenuDesc());
-        //클릭이벤트
-//        holder.name.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
+        holder.menuImage.setImageBitmap(mDataset.get(position).getMenuImage());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String menuName=holder.menuName.getText().toString();
+                selectMenuName=menuName;
+
+                new Thread(new removeMenuRunner()).start();
+            }
+        });
+    }
+
+    public class removeMenuRunner implements Runnable{
+
+        @Override
+        public void run() {
+            HttpService httpService= HttpClient.getApiService();
+            try {
+                Response<Message> menu=httpService.removeMenuRequest(loginId,selectMenuName).execute();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
     public int getItemCount() {
         return mDataset.size();
     }
+
+
+//    public static class Back extends AsyncTask<String, Integer, Bitmap> {
+//        Bitmap bitmap=null;
+//        @Override
+//        protected Bitmap doInBackground(String... urls) {
+//
+//            try{
+//
+//                URL myFileUrl = new URL(urls[0]);
+//                HttpURLConnection conn = (HttpURLConnection)myFileUrl.openConnection();
+//                conn.setDoInput(true);
+//                conn.connect();
+//
+//                InputStream is = conn.getInputStream();
+//
+//                bitmap = BitmapFactory.decodeStream(is);
+//
+//
+//            }catch(IOException e){
+//                e.printStackTrace();
+//            }
+//
+//            return bitmap;
+//        }
+//
+//        protected void onPostExecute(Bitmap img){
+//            globalBitmap=img;
+//
+//        }
+//
+//    }
+
+
 }

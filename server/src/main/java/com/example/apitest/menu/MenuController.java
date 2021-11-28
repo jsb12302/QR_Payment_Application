@@ -1,7 +1,9 @@
 package com.example.apitest.menu;
 
+import com.example.apitest.message.Message;
 import com.example.apitest.message.Status;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -9,9 +11,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.util.*;
 
 @Controller
@@ -35,12 +35,62 @@ public class MenuController {
         return menuService.findMenu(loginId);
     }
 
-//    @PostMapping("/getMenuImage")
-//    @ResponseBody
-//    public List<Menu> returnMenuImage(@RequestParam String loginId){
-//        return menuService.findMenu(loginId);
-//    }
+    @PostMapping("/findMenuName")
+    @ResponseBody
+    public void test22(){
+        String str="C:\\menu\\1\\539156780.jpeg";
 
+        System.out.println(str.indexOf("."));
+
+        System.out.println(str.lastIndexOf("\\"));
+        System.out.println(str.substring(10,19));
+
+    }
+
+
+    @GetMapping(value = "/img", produces = MediaType.IMAGE_JPEG_VALUE)
+    @ResponseBody
+    public byte[] imageSearch(@RequestParam("loginId") String loginId,
+                              @RequestParam("menuName") String menuName
+                              ) throws IOException {
+        FileInputStream fis = null;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        String fileDir = "C:\\menu\\" + loginId + "\\" + menuName + ".jpeg";
+        System.out.println(fileDir);
+
+        try {
+            fis = new FileInputStream(fileDir);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        int readCount = 0;
+        byte[] buffer = new byte[1024];
+        byte[] fileArray = null;
+
+        try {
+            while ((readCount = fis.read(buffer)) != -1) {
+                baos.write(buffer, 0, readCount);
+            }
+            fileArray = baos.toByteArray();
+            fis.close();
+            baos.close();
+        } catch (IOException e) {
+            throw new RuntimeException("File Error");
+        }
+        return fileArray;
+    }
+
+
+    @PostMapping("/removeMenu") //메뉴 지우기
+    @ResponseBody
+    public Message removeMenuRequest(@RequestParam String loginId, @RequestParam String menuName){
+        menuService.removeMenu(loginId,menuName);
+        System.out.println("메뉴 삭제중");
+        Message message=new Message();
+        message.setMessage("메뉴 삭제 성공");
+        return message;
+    }
 
     @RequestMapping(value = "/fileUpload", method = RequestMethod.POST)
     public Map fileUpload(HttpServletRequest req, HttpServletResponse rep, @RequestParam Map<String, String> paramMap) {

@@ -55,14 +55,14 @@
             android:id="@+id/button7"
             android:layout_width="178dp"
             android:layout_height="257dp"
+            android:layout_margin="10dp"
             android:background="@drawable/select_usertype"
             android:drawableTop="@drawable/signup_shop_pic"
+            android:fontFamily="@font/elicebold"
             android:onClick="go_owner_sign_page"
-            android:layout_margin="10dp"
             android:paddingTop="20dp"
             android:text="가맹점주"
             android:textColor="#0E3F6C"
-            android:fontFamily="@font/elicebold"
             android:textSize="20sp" />
 
         <Button

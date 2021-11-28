@@ -1,11 +1,21 @@
 package com.example.myapplication.owner.ui.menu_manage;
 
+import android.graphics.Bitmap;
+
 public class Menu {
 
 
     String menuName;
     String menuPrice;
     String menuDesc;
+    Bitmap menuImage;
+
+    public Menu(String menuName, String menuPrice, String menuDesc,Bitmap menuImage) {
+        this.menuName = menuName;
+        this.menuPrice = menuPrice;
+        this.menuDesc = menuDesc;
+        this.menuImage = menuImage;
+    }
 
     public String getMenuName() {
         return menuName;
@@ -31,9 +41,11 @@ public class Menu {
         this.menuDesc = menuDesc;
     }
 
-    public Menu(String menuName, String menuPrice, String menuDesc) {
-        this.menuName = menuName;
-        this.menuPrice = menuPrice;
-        this.menuDesc = menuDesc;
+    public Bitmap getMenuImage() {
+        return menuImage;
+    }
+
+    public void setMenuImage(Bitmap menuImage) {
+        this.menuImage = menuImage;
     }
 }

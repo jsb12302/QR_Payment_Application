@@ -85,14 +85,14 @@ public class LoginService {
         return false;
     }
     @Transactional
-    public void ChangePwd(String changePwd,Role role){
+    public void ChangePwd(String changeId,String changePwd,Role role){
         System.out.println(role);
         if (role.equals(Role.ROLE_USER)) {
-            userRepository.UpdatePwd(changePwd);
+            userRepository.UpdatePwd(changeId,changePwd);
             System.out.println(changePwd);
         }
         else{
-            ownerRepository.UpdatePwd(changePwd);
+            ownerRepository.UpdatePwd(changeId,changePwd);
             System.out.println(changePwd);
         }
 

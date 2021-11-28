@@ -1,6 +1,9 @@
 package com.example.myapplication.owner.ui.menu_manage;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,11 +23,13 @@ import com.example.myapplication.databinding.FragmentOwnerMenuManageBinding;
 import com.example.myapplication.retrofit2.HttpClient;
 import com.example.myapplication.retrofit2.HttpService;
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
-import java.sql.SQLOutput;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import retrofit2.Response;
 
@@ -33,6 +38,13 @@ public class MenuManageFragment extends Fragment implements View.OnClickListener
     public static ArrayList<Menu> InsertMenuList = new ArrayList<>();
     private RecyclerView recyclerView;
     private MenuAdapter mAdapter;
+
+    String imgUrl = "http://10.0.2.2:8080/img?loginId=";
+
+    //sendImageRequest("http://10.0.2.2:8080/img?loginId=" + loginId + "&menuName=" + menuName);
+
+    public static Bitmap globalBitmap;
+
 
     String loginId=((MainActivity)MainActivity.context_main).var; //로그인 아이디 가져오기
     private MenuManageViewModel menuManageViewModel;
@@ -55,7 +67,7 @@ public class MenuManageFragment extends Fragment implements View.OnClickListener
                 startActivity(intent);
             }
         });
-
+        System.out.println("---------------------");
         recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView_menu);
         recyclerView.setHasFixedSize(true);
         mAdapter = new MenuAdapter(InsertMenuList);
@@ -69,7 +81,10 @@ public class MenuManageFragment extends Fragment implements View.OnClickListener
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         new Thread(new ConnectGetRunner()).start();
+        System.out.println("++++++++++++++++++++++++++");
     }
+
+    ArrayList<String >urlArray=new ArrayList<>();
 
     public class ConnectGetRunner implements Runnable {
 
@@ -78,12 +93,29 @@ public class MenuManageFragment extends Fragment implements View.OnClickListener
             InsertMenuList.clear();
             HttpService httpService= HttpClient.getApiService();
             try {
+
                 Response<List<MenuDto>> menu=httpService.getMenu(loginId).execute();
                 List<MenuDto> menuList= menu.body();
+
                 for(int i=0;i<menuList.size();i++) {
+
+                    String menuName=menuList.get(i).getImage();
+                    int start=menuName.lastIndexOf("\\");
+                    int finish=menuName.lastIndexOf(".");
+                    menuName=menuName.substring(start+1,finish);
+                    System.out.println(menuName);
+                    //sendImageRequest("http://10.0.2.2:8080/img?loginId=" + loginId + "&menuName=" + menuName);
+
+
+                    Back task = new Back();
+                    task.execute("http://10.0.2.2:8080/img?loginId=" + loginId + "&menuName=" + menuName);
+
                     InsertMenuList.add(new Menu(menuList.get(i).getMenuName(),menuList.get(i).getMenuPrice(),
-                            menuList.get(i).getMenuDesc()));
+                            menuList.get(i).getMenuDesc(),globalBitmap));
+                    System.out.println("비트맵"+globalBitmap);
                 }
+
+
             }catch (IOException e){
                 e.printStackTrace();
             }
@@ -98,6 +130,36 @@ public class MenuManageFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void onClick(View view) {
+
+    }
+
+    private class Back extends AsyncTask<String, Integer,Bitmap> {
+
+        @Override
+        protected Bitmap doInBackground(String... urls) {
+            Bitmap bitmap=null;
+            try{
+
+                URL myFileUrl = new URL(urls[0]);
+                HttpURLConnection conn = (HttpURLConnection)myFileUrl.openConnection();
+                conn.setDoInput(true);
+                conn.connect();
+
+                InputStream is = conn.getInputStream();
+
+                bitmap = BitmapFactory.decodeStream(is);
+
+
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+            return bitmap;
+        }
+
+        protected void onPostExecute(Bitmap img){
+            System.out.println("생성");
+            globalBitmap=img;
+        }
 
     }
 

@@ -4,6 +4,7 @@ import com.example.apitest.exception.EmptyFieldFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +53,16 @@ public class MenuService {
         return menu.getImage()+menu.getMenuName();
     }
 
+    @Transactional
+    public void removeMenu(String loginId,String menuName){
+        List<Menu> allByLoginId = menuRepository.findAllByLoginId(loginId);
+
+        for(int i=0;i<allByLoginId.size();i++){
+            if(allByLoginId.get(i).getMenuName().equals(menuName)){
+                menuRepository.delete(allByLoginId.get(i));
+            }
+        }
+    }
 
 
 }

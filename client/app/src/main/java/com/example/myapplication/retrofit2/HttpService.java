@@ -19,6 +19,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -60,7 +61,15 @@ public interface HttpService {
                               @Query("role") Role role);
 
     @POST("/changePwd")
-    Call<Message> changePwdRequest(@Query("changePwd") String changePwd,@Query("role") Role role);
+    Call<Message> changePwdRequest(@Query("changeId")String changeId,
+                                   @Query("changePwd") String changePwd,@Query("role") Role role);
+
+    @POST("/removeMenu")
+    Call<Message> removeMenuRequest(@Query("loginId")String loginId,
+                                    @Query("menuName")String menuName);
+
+    @GET("/img")
+    Call<Void> uploadImage(@Query("loginId")String loginId,@Query("menuName")String menuName);
 
 //    @POST("/getMenuImage") //이미지 파일 까지 가져오기
 //    Call<List<MenuImageDto>> getMenuImage(@Query("loginId") String loginId);
