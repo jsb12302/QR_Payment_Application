@@ -1,4 +1,4 @@
-package com.example.myapplication.user.menu;
+package com.example.myapplication.user.qr;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

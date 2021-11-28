@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="Picture">
+        <item>@drawable/ediya</item>
+    </array>
+
+    <string-array name="Name">
+        <item>아메리카노</item>
+        <item>라떼는 말야</item>
+        <item>초코 스무디</item>
+        <item>딸기 스무디</item>
+        <item>블루베리 스무디</item>
+    </string-array>
+
+    <string-array name="Contents">
+        <item>씁쓸한 인생 맛</item>
+        <item>부드러운 인생 맛</item>
+        <item>달달한 군생활 맛</item>
+        <item>상큼한 캠퍼스라이프 맛</item>
+        <item>짜릿한 연애의 맛</item>
+    </string-array>
+
+    <string-array name="Cost">
+        <item>3000</item>
+        <item>3500</item>
+        <item>5000</item>
+        <item>5000</item>
+        <item>5000</item>
+    </string-array>
+</resources>

@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.myapplication">
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.CAMERA" /><!--추가 -->
     <application
 
@@ -31,7 +33,7 @@
         <activity android:name=".user.UserMain"/>
         <activity android:name=".user.qr.ScanQRActivity"/>
         <activity android:name=".user.map.MapActivity"/>
-        <activity android:name=".user.menu.TabActivity"/>
+        <activity android:name=".user.qr.TabActivity"/>
         <activity android:name=".signup.SignUpUserRequest"
             android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".signup.OwnerSignUpRequest"
