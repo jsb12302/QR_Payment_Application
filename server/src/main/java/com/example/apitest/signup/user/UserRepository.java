@@ -11,6 +11,6 @@ public interface UserRepository extends JpaRepository<User,Long> {
     User findByUserHP(String userHP);
 
     @Modifying(clearAutomatically = true)
-    @Query("update User m SET m.userPwd =:pwd")
-    public void UpdatePwd(@Param("pwd")String pwd);
+    @Query("update User m SET m.userPwd =:pwd WHERE m.userId=:id")
+    public void UpdatePwd(@Param("id")String id,@Param("pwd")String pwd);
 }

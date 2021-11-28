@@ -67,4 +67,8 @@ dependencies {
     implementation 'org.json:json:20190722'
     compileOnly group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
 
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
 }

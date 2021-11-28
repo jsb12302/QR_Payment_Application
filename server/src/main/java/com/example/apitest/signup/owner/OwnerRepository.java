@@ -14,7 +14,7 @@ public interface OwnerRepository extends JpaRepository<Owner,Long> {
     Owner findByStoreHP(String storeHP);
 
     @Modifying(clearAutomatically = true)
-    @Query("update Owner m SET m.ownerPwd =:pwd")
-    public void UpdatePwd(@Param("pwd")String pwd);
+    @Query("update Owner m SET m.ownerPwd =:pwd WHERE m.ownerId=:id")
+    public void UpdatePwd(@Param("id")String id,@Param("pwd")String pwd);
 
 }

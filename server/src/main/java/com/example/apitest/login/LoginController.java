@@ -35,8 +35,9 @@ public class LoginController {
 
     @PostMapping("/changePwd")
     @ResponseBody
-    public Message changePwd(@RequestParam String changePwd,@RequestParam Role role){
-        loginService.ChangePwd(changePwd,role);
+    public Message changePwd(@RequestParam String changeId,
+                             @RequestParam String changePwd,@RequestParam Role role){
+        loginService.ChangePwd(changeId,changePwd,role);
         Message message=new Message();
         message.setMessage("비밀번호 변경 성공");
         return message;

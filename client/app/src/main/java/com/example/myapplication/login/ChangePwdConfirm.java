@@ -32,6 +32,7 @@ public class ChangePwdConfirm extends AppCompatActivity {
     //메뉴 저장할때 로그인한 사용자 아이디 넘기기 위해
     public static Context context_main; // context 변수 선언
     public Role varRole=Role.ROLE_OWNER;
+    public String changeId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +67,7 @@ public class ChangePwdConfirm extends AppCompatActivity {
 
         changeConfirmId=changeConfirmIdText.getText().toString();
         changeConfirmPhone=changeConfirmPhoneText.getText().toString();
-
+        changeId=changeConfirmId;
         new Thread(new ConfirmRunner()).start();
     }
     public class ConfirmRunner implements Runnable{

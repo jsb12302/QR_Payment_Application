@@ -24,6 +24,7 @@ public class ChangePwd extends AppCompatActivity {
 
     //ChangePwdConfirm에서 선택한 사용자 role 가져옴
     Role varRole=((ChangePwdConfirm)ChangePwdConfirm.context_main).varRole;
+    String changeId=((ChangePwdConfirm)ChangePwdConfirm.context_main).changeId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +59,7 @@ public class ChangePwd extends AppCompatActivity {
         public void run() {
             HttpService httpService = HttpClient.getApiService();
             try {
-                Response<Message> message=httpService.changePwdRequest(change_pwd,varRole).execute();
+                Response<Message> message=httpService.changePwdRequest(changeId,change_pwd,varRole).execute();
                 Handler handler=new Handler(Looper.getMainLooper());
                 handler.postDelayed(new Runnable() {
                     @Override

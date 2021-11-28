@@ -66,7 +66,15 @@ public interface HttpService {
                               @Query("role") Role role);
 
     @POST("/changePwd")
-    Call<Message> changePwdRequest(@Query("changePwd") String changePwd,@Query("role") Role role);
+    Call<Message> changePwdRequest(@Query("changeId")String changeId,
+                                   @Query("changePwd") String changePwd,@Query("role") Role role);
+
+    @POST("/removeMenu")
+    Call<Message> removeMenuRequest(@Query("loginId")String loginId,
+                                    @Query("menuName")String menuName);
+
+    @GET("/img")
+    Call<Void> uploadImage(@Query("loginId")String loginId,@Query("menuName")String menuName);
 
 //    @POST("/getMenuImage") //이미지 파일 까지 가져오기
 //    Call<List<MenuImageDto>> getMenuImage(@Query("loginId") String loginId);
