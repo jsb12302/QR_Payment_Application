@@ -18,6 +18,7 @@ public class StoreService {
         store=Store.addStore(ownerId, storeName, storeHp, storeLoc,storeLatitude, storeLongitude, storePic, ownerNum);
         return storeRepository.save(store);
     }
+
     public void JoinStore(StoreDTO storeDTO){
         createStore(storeDTO.getOwnerId(),storeDTO.getStoreName(),storeDTO.getStoreHp(),
                 storeDTO.getStoreLoc(),storeDTO.getStoreLatitude(),storeDTO.getStoreLongitude(),
@@ -25,8 +26,7 @@ public class StoreService {
     }
 
     public Store findStoreName(String loginId){
-        Store store = storeRepository.findByOwnerId(loginId);
-        return store;
+        return storeRepository.findByOwnerId(loginId);
     }
 
     public List<Store> findStore() {
