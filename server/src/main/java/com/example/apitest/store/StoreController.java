@@ -21,7 +21,7 @@ public class StoreController {
     public Message storeRegister(@RequestBody StoreDTO storeDTO){
         storeService.JoinStore(storeDTO);
         Message message=new Message();
-        message.setMessage("점주 회원가입 성공");
+        message.setMessage("가맹점 등록 성공");
         return message;
     }
 
