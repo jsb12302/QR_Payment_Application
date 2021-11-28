@@ -8,14 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.view.Menu;
-import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.menu.Menu;
 import com.example.myapplication.message.Message;
 import com.example.myapplication.message.Status;
 import com.example.myapplication.retrofit2.HttpClient;
@@ -134,7 +131,6 @@ public class AddMenuRequest extends AppCompatActivity{
         }
     }
 
-
     public class ConnectGetRunner implements Runnable {
 
         @Override
@@ -154,10 +150,6 @@ public class AddMenuRequest extends AppCompatActivity{
         }
     }
 
-    private String menuName;
-    private String menuPrice;
-    private String menuDesc;
-
     public void add_menu(View v){
         EditText menuNameText=findViewById(R.id.munu_name);
         EditText menuPriceText=findViewById(R.id.menu_price);
@@ -168,20 +160,5 @@ public class AddMenuRequest extends AppCompatActivity{
         menuDesc=menuDescText.getText().toString();
 
         new Thread(new ConnectRunner()).start();
-        //new Thread(new ConnectGetRunner()).start();
-    }
-    public class ConnectRunner implements Runnable {
-
-        @Override
-        public void run() {
-            HttpService httpService = HttpClient.getApiService();
-            MenuDto menuDto=new MenuDto(menuName,menuPrice,menuDesc,loginId);
-            try {
-                Response<Status> menu=httpService.addMenu(menuDto).execute();
-                finish();
-            }catch (IOException e){
-                e.printStackTrace();
-            }
-        }
     }
 }
