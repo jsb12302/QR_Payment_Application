@@ -67,10 +67,15 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MyViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull MenuAdapter.MyViewHolder holder, int position) {
 
+
+
+        Glide.with(holder.itemView.getContext())
+                .load(mDataset.get(position).getMenuImage())
+                .into(holder.menuImage);
+
         holder.menuName.setText(mDataset.get(position).getMenuName());
         holder.menuPrice.setText(mDataset.get(position).getMenuPrice());
         holder.menuDesc.setText(mDataset.get(position).getMenuDesc());
-        holder.menuImage.setImageBitmap(mDataset.get(position).getMenuImage());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

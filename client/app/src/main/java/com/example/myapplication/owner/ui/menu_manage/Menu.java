@@ -8,9 +8,9 @@ public class Menu {
     String menuName;
     String menuPrice;
     String menuDesc;
-    Bitmap menuImage;
+    String menuImage;
 
-    public Menu(String menuName, String menuPrice, String menuDesc,Bitmap menuImage) {
+    public Menu(String menuName, String menuPrice, String menuDesc,String menuImage) {
         this.menuName = menuName;
         this.menuPrice = menuPrice;
         this.menuDesc = menuDesc;
@@ -41,11 +41,11 @@ public class Menu {
         this.menuDesc = menuDesc;
     }
 
-    public Bitmap getMenuImage() {
+    public String getMenuImage() {
         return menuImage;
     }
 
-    public void setMenuImage(Bitmap menuImage) {
+    public void setMenuImage(String menuImage) {
         this.menuImage = menuImage;
     }
 }

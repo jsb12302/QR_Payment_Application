@@ -67,7 +67,6 @@ public class MenuManageFragment extends Fragment implements View.OnClickListener
                 startActivity(intent);
             }
         });
-        System.out.println("---------------------");
         recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView_menu);
         recyclerView.setHasFixedSize(true);
         mAdapter = new MenuAdapter(InsertMenuList);
@@ -81,7 +80,6 @@ public class MenuManageFragment extends Fragment implements View.OnClickListener
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         new Thread(new ConnectGetRunner()).start();
-        System.out.println("++++++++++++++++++++++++++");
     }
 
     ArrayList<String >urlArray=new ArrayList<>();
@@ -103,16 +101,10 @@ public class MenuManageFragment extends Fragment implements View.OnClickListener
                     int start=menuName.lastIndexOf("\\");
                     int finish=menuName.lastIndexOf(".");
                     menuName=menuName.substring(start+1,finish);
-                    System.out.println(menuName);
-                    //sendImageRequest("http://10.0.2.2:8080/img?loginId=" + loginId + "&menuName=" + menuName);
-
-
-                    Back task = new Back();
-                    task.execute("http://10.0.2.2:8080/img?loginId=" + loginId + "&menuName=" + menuName);
 
                     InsertMenuList.add(new Menu(menuList.get(i).getMenuName(),menuList.get(i).getMenuPrice(),
-                            menuList.get(i).getMenuDesc(),globalBitmap));
-                    System.out.println("비트맵"+globalBitmap);
+                            menuList.get(i).getMenuDesc(),"http://10.0.2.2:8080/img?loginId=" + loginId + "&menuName=" + menuName));
+
                 }
 
 
@@ -137,19 +129,17 @@ public class MenuManageFragment extends Fragment implements View.OnClickListener
 
         @Override
         protected Bitmap doInBackground(String... urls) {
-            Bitmap bitmap=null;
+            Bitmap bitmap = null;
             try{
-
+                
                 URL myFileUrl = new URL(urls[0]);
                 HttpURLConnection conn = (HttpURLConnection)myFileUrl.openConnection();
                 conn.setDoInput(true);
                 conn.connect();
 
                 InputStream is = conn.getInputStream();
-
                 bitmap = BitmapFactory.decodeStream(is);
-
-
+                is.close();
             }catch(IOException e){
                 e.printStackTrace();
             }
@@ -157,10 +147,8 @@ public class MenuManageFragment extends Fragment implements View.OnClickListener
         }
 
         protected void onPostExecute(Bitmap img){
-            System.out.println("생성");
             globalBitmap=img;
         }
-
     }
 
 }
