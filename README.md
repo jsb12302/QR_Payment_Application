@@ -1,4 +1,3 @@
-# README
 ## QR payment application and server
 
 This repository contains:
