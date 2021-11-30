@@ -28,7 +28,17 @@ public class OrdersController {
         return ordersService.findOrder(storeName);
     }
 
-//    @PostMapping("detailTable")
-//    @ResponseBody
-//    public
+    @PostMapping("/getTableStatus")
+    @ResponseBody
+    public List<Orders> returnTableStatus(@RequestParam String storeName,@RequestParam Integer orderState){
+        return ordersService.findTableStatus(storeName,orderState);
+    }
+
+    @PostMapping("/getSeatOrders")
+    @ResponseBody
+    public List<Orders> returnSeatOrders(@RequestParam Integer tableNum, @RequestParam Integer orderState,
+                                         @RequestParam String storeName){
+        return ordersService.findSeatOrders(tableNum,orderState,storeName);
+    }
+
 }

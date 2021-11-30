@@ -32,7 +32,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_gravity="center"
                 android:text="금액"
-                android:background="@drawable/inactive_button"/>
+                android:background="@drawable/active_button"/>
             <Button
                 android:id="@+id/seat2"
                 android:layout_width="180dp"

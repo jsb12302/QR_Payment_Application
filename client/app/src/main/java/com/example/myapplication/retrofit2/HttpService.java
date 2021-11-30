@@ -9,6 +9,7 @@ import com.example.myapplication.owner.ui.menu_manage.MenuDto;
 import com.example.myapplication.owner.ui.menu_manage.MenuDto;
 import com.example.myapplication.message.Message;
 import com.example.myapplication.message.Status;
+import com.example.myapplication.owner.ui.seat_manage.SeatOrder;
 import com.example.myapplication.signup.OwnerSignUpDto;
 import com.example.myapplication.signup.UserSignUpDto;
 import com.example.myapplication.store.StoreSignUpDto;
@@ -76,10 +77,15 @@ public interface HttpService {
     @GET("/img")
     Call<Void> uploadImage(@Query("loginId")String loginId,@Query("menuName")String menuName);
 
-//    @POST("/getMenuImage") //이미지 파일 까지 가져오기
-//    Call<List<MenuImageDto>> getMenuImage(@Query("loginId") String loginId);
-
     @POST("/getStoreInfo")
     Call<List<Stores>> getStore();
 
+    @POST("/getSeatOrders")
+    Call<List<OrdersDTO>> getSeatOrders(@Query("tableNum")Integer tableNum,
+                                   @Query("orderState")Integer orderState,
+                                   @Query("storeName")String storeName);
+
+    @POST("/getTableStatus")
+    Call<List<OrdersDTO>> getTableStatus(@Query("storeName")String storeName,
+                                         @Query("orderState")Integer orderState);
 }
