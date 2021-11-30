@@ -99,6 +99,7 @@ public class MenuController {
         String menuPrice=paramMap.get("menuPrice");
         String menuDesc=paramMap.get("menuDesc");
         String loginId=paramMap.get("loginId");
+        String storeName=paramMap.get("storeName");
 
         System.out.println("메뉴 이름 : " + menuName);
 
@@ -148,7 +149,7 @@ public class MenuController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        menuService.registMenu(menuName,menuPrice,menuDesc,loginId,path+"\\"+fileName);
+        menuService.registMenu(menuName,menuPrice,menuDesc,loginId,path+"\\"+fileName,storeName);
         return null;
     }
 

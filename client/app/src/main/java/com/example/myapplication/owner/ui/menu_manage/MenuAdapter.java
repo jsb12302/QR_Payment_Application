@@ -67,8 +67,6 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MyViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull MenuAdapter.MyViewHolder holder, int position) {
 
-
-
         Glide.with(holder.itemView.getContext())
                 .load(mDataset.get(position).getMenuImage())
                 .into(holder.menuImage);
@@ -105,38 +103,4 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MyViewHolder>{
     public int getItemCount() {
         return mDataset.size();
     }
-
-
-//    public static class Back extends AsyncTask<String, Integer, Bitmap> {
-//        Bitmap bitmap=null;
-//        @Override
-//        protected Bitmap doInBackground(String... urls) {
-//
-//            try{
-//
-//                URL myFileUrl = new URL(urls[0]);
-//                HttpURLConnection conn = (HttpURLConnection)myFileUrl.openConnection();
-//                conn.setDoInput(true);
-//                conn.connect();
-//
-//                InputStream is = conn.getInputStream();
-//
-//                bitmap = BitmapFactory.decodeStream(is);
-//
-//
-//            }catch(IOException e){
-//                e.printStackTrace();
-//            }
-//
-//            return bitmap;
-//        }
-//
-//        protected void onPostExecute(Bitmap img){
-//            globalBitmap=img;
-//
-//        }
-//
-//    }
-
-
 }

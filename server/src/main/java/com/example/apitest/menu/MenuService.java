@@ -17,8 +17,8 @@ public class MenuService {
 
     private Menu menu;
 
-    public Menu registMenu(String menuName, String menuPrice, String menuDesc, String loginId,String image){
-        menu=Menu.addMenu(menuName,menuPrice,menuDesc,loginId,image);
+    public Menu registMenu(String menuName, String menuPrice, String menuDesc, String loginId,String image, String storeName){
+        menu=Menu.addMenu(menuName,menuPrice,menuDesc,loginId,image,storeName);
         return menuRepository.save(menu);
     }
 
@@ -28,7 +28,7 @@ public class MenuService {
             throw new EmptyFieldFoundException("빈칸 존재");
         }else{
             registMenu(menuDTO.getMenuName(),menuDTO.getMenuPrice(),menuDTO.getMenuDesc(),
-                    menuDTO.getLoginId(),menuDTO.getImage());
+                    menuDTO.getLoginId(),menuDTO.getImage(),menuDTO.getStoreName());
         }
     }
 

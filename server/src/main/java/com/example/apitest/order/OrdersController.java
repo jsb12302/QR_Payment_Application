@@ -27,4 +27,8 @@ public class OrdersController {
     public List<Orders> returnOrders(@RequestParam String storeName) {
         return ordersService.findOrder(storeName);
     }
+
+//    @PostMapping("detailTable")
+//    @ResponseBody
+//    public
 }
