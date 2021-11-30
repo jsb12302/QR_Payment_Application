@@ -13,4 +13,15 @@ public interface OrdersRepository extends JpaRepository<Orders, Long> {
 
     @Query("select m from Orders m where m.storeName =:storeName")
     List<Orders> findAllByStoreName (@Param("storeName")String storeName);
+
+    @Query("select m from Orders m where m.storeName=:storeName and m.orderState=:orderState")
+    List<Orders> findAllByTableStatus(@Param("storeName")String storeName,
+                                      @Param("orderState")Integer orderState);
+
+    @Query("select m from Orders m where m.storeName=:storeName and m.orderState=:orderState and m.tableNum=:tableNum")
+    List<Orders> findAllBySeatOrders(@Param("tableNum") Integer tableNum,
+                                     @Param("orderState")Integer orderState,
+                                     @Param("storeName")String storeName);
+
 }
+

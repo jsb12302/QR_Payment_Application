@@ -32,4 +32,18 @@ public class OrdersService {
         System.out.println(allByStoreName.get(0).getStoreName()+"/"+ allByStoreName.get(0).getOrderDate());
         return allByStoreName;
     }
+
+    public List<Orders> findTableStatus(String storeName, Integer orderState){
+        List<Orders> allByTableStatus=ordersRepository.findAllByTableStatus(storeName,orderState);
+//        for(int i=0;i<allByTableStatus.size();i++){
+//            System.out.println(allByTableStatus.get(i).getOrderState());
+//            System.out.println(allByTableStatus.get(i).getTableNum());
+//        }
+        return allByTableStatus;
+    }
+
+    public List<Orders> findSeatOrders(Integer tableNum, Integer orderState, String storeName){
+        List<Orders> allBySeatOrders=ordersRepository.findAllBySeatOrders(tableNum,orderState,storeName);
+        return allBySeatOrders;
+    }
 }
