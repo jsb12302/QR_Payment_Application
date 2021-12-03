@@ -17,6 +17,8 @@ import com.example.myapplication.message.Message;
 import com.example.myapplication.message.Status;
 import com.example.myapplication.retrofit2.HttpClient;
 import com.example.myapplication.retrofit2.HttpService;
+import com.example.myapplication.signup.OwnerSignUpRequest;
+import com.example.myapplication.store.StoreSignUpDto;
 import com.example.myapplication.user.UserMain;
 
 import java.io.ByteArrayOutputStream;
@@ -72,6 +74,7 @@ public class AddMenuRequest extends AppCompatActivity{
     private String menuPrice;
     private String menuDesc;
 
+
     public void menu_add_button(View v){
 
         EditText menuNameText = (EditText) findViewById(R.id.munu_name);
@@ -87,10 +90,18 @@ public class AddMenuRequest extends AppCompatActivity{
     }
 
     public class ConnectRunner implements Runnable {
-
+        String storeName;
         @Override
         public void run() {
             HttpService httpService = HttpClient.getApiService();
+
+            try {
+                Response<StoreSignUpDto> storenames = httpService.getStoreName(loginId).execute();
+                StoreSignUpDto body = storenames.body();
+                storeName=body.getStoreName();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
             HashMap<String, RequestBody> map = new HashMap<>();
 
@@ -98,11 +109,13 @@ public class AddMenuRequest extends AppCompatActivity{
             RequestBody sMenuPrice = RequestBody.create(MediaType.parse("text/plain"), menuPrice);
             RequestBody sMenuDesc = RequestBody.create(MediaType.parse("text/plain"), menuDesc);
             RequestBody sLoginId = RequestBody.create(MediaType.parse("text/plain"), loginId);
+            RequestBody sStoreName = RequestBody.create(MediaType.parse("text/plain"), storeName);
 
             map.put("menuName",sMenuName);
             map.put("menuPrice",sMenuPrice);
             map.put("menuDesc",sMenuDesc);
             map.put("loginId",sLoginId);
+            map.put("storeName",sStoreName);
 
             File file = new File(selectedImageUri.getPath());
 

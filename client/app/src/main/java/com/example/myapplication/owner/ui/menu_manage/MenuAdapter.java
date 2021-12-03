@@ -1,17 +1,11 @@
 package com.example.myapplication.owner.ui.menu_manage;
 
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,9 +18,6 @@ import com.example.myapplication.retrofit2.HttpClient;
 import com.example.myapplication.retrofit2.HttpService;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 
 import retrofit2.Response;
@@ -67,8 +58,6 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MyViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull MenuAdapter.MyViewHolder holder, int position) {
 
-
-
         Glide.with(holder.itemView.getContext())
                 .load(mDataset.get(position).getMenuImage())
                 .into(holder.menuImage);
@@ -105,38 +94,4 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MyViewHolder>{
     public int getItemCount() {
         return mDataset.size();
     }
-
-
-//    public static class Back extends AsyncTask<String, Integer, Bitmap> {
-//        Bitmap bitmap=null;
-//        @Override
-//        protected Bitmap doInBackground(String... urls) {
-//
-//            try{
-//
-//                URL myFileUrl = new URL(urls[0]);
-//                HttpURLConnection conn = (HttpURLConnection)myFileUrl.openConnection();
-//                conn.setDoInput(true);
-//                conn.connect();
-//
-//                InputStream is = conn.getInputStream();
-//
-//                bitmap = BitmapFactory.decodeStream(is);
-//
-//
-//            }catch(IOException e){
-//                e.printStackTrace();
-//            }
-//
-//            return bitmap;
-//        }
-//
-//        protected void onPostExecute(Bitmap img){
-//            globalBitmap=img;
-//
-//        }
-//
-//    }
-
-
 }

@@ -1,11 +1,9 @@
 package com.example.myapplication.retrofit2;
 
 import com.example.myapplication.domain.Role;
-import android.view.Menu;
 
 import com.example.myapplication.login.LoginRequestDto;
 import com.example.myapplication.owner.ui.check_sales.OrdersDTO;
-import com.example.myapplication.owner.ui.menu_manage.MenuDto;
 import com.example.myapplication.owner.ui.menu_manage.MenuDto;
 import com.example.myapplication.message.Message;
 import com.example.myapplication.message.Status;
@@ -19,8 +17,6 @@ import java.util.List;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.*;
@@ -76,10 +72,20 @@ public interface HttpService {
     @GET("/img")
     Call<Void> uploadImage(@Query("loginId")String loginId,@Query("menuName")String menuName);
 
-//    @POST("/getMenuImage") //이미지 파일 까지 가져오기
-//    Call<List<MenuImageDto>> getMenuImage(@Query("loginId") String loginId);
-
     @POST("/getStoreInfo")
     Call<List<Stores>> getStore();
 
+    @POST("/getSeatOrders")
+    Call<List<OrdersDTO>> getSeatOrders(@Query("tableNum")Integer tableNum,
+                                   @Query("orderState")Integer orderState,
+                                   @Query("storeName")String storeName);
+
+    @POST("/getTableStatus")
+    Call<List<OrdersDTO>> getTableStatus(@Query("storeName")String storeName,
+                                         @Query("orderState")Integer orderState);
+
+    @POST("/changeOrderState")
+    Call<Message> updateOrderState(@Query("storeName")String storeName,
+                          @Query("orderState")Integer orderState,
+                          @Query("tableNum")Integer tableNum);
 }

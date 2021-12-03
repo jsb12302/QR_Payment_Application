@@ -5,8 +5,8 @@ import java.util.Date;
 public class Orders {
     String userId;
     String storeName;
-    String menuNameO;
-    int menuPriceO;
+    String menuName;
+    int menuPrice;
     int menuCount;
     Date orderDate;
     int tableNum;
@@ -27,20 +27,20 @@ public class Orders {
         this.storeName = storeName;
     }
 
-    public String getMenuNameO() {
-        return menuNameO;
+    public String getMenuName() {
+        return menuName;
     }
 
-    public void setMenuNameO(String menuNameO) {
-        this.menuNameO = menuNameO;
+    public void setMenuName(String menuName) {
+        this.menuName = menuName;
     }
 
-    public int getMenuPriceO() {
-        return menuPriceO;
+    public int getMenuPrice() {
+        return menuPrice;
     }
 
-    public void setMenuPriceO(int menuPriceO) {
-        this.menuPriceO = menuPriceO;
+    public void setMenuPrice(int menuPrice) {
+        this.menuPrice = menuPrice;
     }
 
     public int getMenuCount() {
@@ -67,11 +67,11 @@ public class Orders {
         this.tableNum = tableNum;
     }
 
-    public Orders(String userId, String storeName, String menuNameO, int menuPriceO, int menuCount, Date orderDate, int tableNum) {
+    public Orders(String userId, String storeName, String menuName, int menuPrice, int menuCount, Date orderDate, int tableNum) {
         this.userId = userId;
         this.storeName = storeName;
-        this.menuNameO = menuNameO;
-        this.menuPriceO = menuPriceO;
+        this.menuName = menuName;
+        this.menuPrice = menuPrice;
         this.menuCount = menuCount;
         this.orderDate = orderDate;
         this.tableNum = tableNum;

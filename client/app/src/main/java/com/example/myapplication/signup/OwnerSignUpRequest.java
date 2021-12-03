@@ -1,5 +1,6 @@
 package com.example.myapplication.signup;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -36,7 +37,6 @@ import lombok.SneakyThrows;
 import retrofit2.Response;
 
 public class OwnerSignUpRequest extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

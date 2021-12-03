@@ -27,14 +27,17 @@ public class Menu {
     String menuPrice;
     String menuDesc;
     String loginId;
+    String storeName;
 
-    public static Menu addMenu(String menuName, String menuPrice, String menuDesc, String loginId,String image) {
+    public static Menu addMenu(String menuName, String menuPrice, String menuDesc,
+                               String loginId,String image, String storeName) {
         Menu menu=new Menu();
         menu.menuName = menuName;
         menu.menuPrice = menuPrice;
         menu.menuDesc = menuDesc;
         menu.loginId = loginId;
         menu.image=image;
+        menu.storeName=storeName;
         return menu;
     }
 

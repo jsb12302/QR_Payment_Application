@@ -41,8 +41,6 @@ public class MenuManageFragment extends Fragment implements View.OnClickListener
 
     String imgUrl = "http://10.0.2.2:8080/img?loginId=";
 
-    //sendImageRequest("http://10.0.2.2:8080/img?loginId=" + loginId + "&menuName=" + menuName);
-
     public static Bitmap globalBitmap;
 
 
@@ -81,8 +79,6 @@ public class MenuManageFragment extends Fragment implements View.OnClickListener
         super.onCreate(savedInstanceState);
         new Thread(new ConnectGetRunner()).start();
     }
-
-    ArrayList<String >urlArray=new ArrayList<>();
 
     public class ConnectGetRunner implements Runnable {
 
