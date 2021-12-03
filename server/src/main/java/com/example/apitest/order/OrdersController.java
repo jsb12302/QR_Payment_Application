@@ -41,4 +41,10 @@ public class OrdersController {
         return ordersService.findSeatOrders(tableNum,orderState,storeName);
     }
 
+    @PostMapping("/changeOrderState")
+    @ResponseBody
+    public Message updateOrderState(@RequestParam String storeName, @RequestParam Integer orderState,
+                                    @RequestParam Integer tableNum) throws Exception {
+        return ordersService.changeState(storeName, orderState, tableNum);
+    }
 }

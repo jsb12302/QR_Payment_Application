@@ -1,9 +1,9 @@
 package com.example.apitest.order;
 
-import com.example.apitest.store.Store;
-import com.example.apitest.store.StoreDTO;
+import com.example.apitest.message.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -45,5 +45,11 @@ public class OrdersService {
     public List<Orders> findSeatOrders(Integer tableNum, Integer orderState, String storeName){
         List<Orders> allBySeatOrders=ordersRepository.findAllBySeatOrders(tableNum,orderState,storeName);
         return allBySeatOrders;
+    }
+
+    @Transactional
+    public Message changeState(String storeName, Integer orderState, Integer tableNum) throws Exception {
+        ordersRepository.changeOrderState(storeName, orderState, tableNum);
+        return null;
     }
 }
