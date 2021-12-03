@@ -1,6 +1,8 @@
 package com.example.myapplication.owner.ui.seat_manage;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentOwnerSeatManageBinding;
+import com.example.myapplication.message.Message;
 import com.example.myapplication.owner.ui.check_sales.OrdersDTO;
 import com.example.myapplication.retrofit2.HttpClient;
 import com.example.myapplication.retrofit2.HttpService;
@@ -67,18 +70,26 @@ public class SeatManageFragment extends Fragment {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         dialog.setContentView(R.layout.order_confirm);
 
+        @SuppressLint("UseSwitchCompatOrMaterialCode")
         Switch switch1=root.findViewById(R.id.seat_switch1);
         if(table1==0){
             switch1.setChecked(true);
+            Button btn1 = root.findViewById(R.id.seat1);
+            btn1.setBackgroundResource(R.drawable.active_button);
         }
+        @SuppressLint("UseSwitchCompatOrMaterialCode")
         Switch switch2=root.findViewById(R.id.seat_switch2);
         if(table2==0){
             switch2.setChecked(true);
+            Button btn2 = root.findViewById(R.id.seat2);
+            btn2.setBackgroundResource(R.drawable.active_button);
         }
+        @SuppressLint("UseSwitchCompatOrMaterialCode")
         Switch switch3=root.findViewById(R.id.seat_switch3);
         if(table3==0){
             switch3.setChecked(true);
         }
+        @SuppressLint("UseSwitchCompatOrMaterialCode")
         Switch switch4=root.findViewById(R.id.seat_switch4);
         if(table4==0){
             switch4.setChecked(true);
@@ -88,8 +99,64 @@ public class SeatManageFragment extends Fragment {
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
+                if (isChecked) {
                     //status
+                    Button btn1 = root.findViewById(R.id.seat1);
+                    btn1.setBackgroundResource(R.drawable.active_button);
+                } else {
+                    Button btn1 = root.findViewById(R.id.seat1);
+                    btn1.setBackgroundResource(R.drawable.inactive_button);
+                    tableNum = 1;
+                    new Thread(new ConnectSetState()).start();
+                    table1 = 1;
+                }
+            }
+        });
+        switch2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    //status
+                    Button btn2 = root.findViewById(R.id.seat2);
+                    btn2.setBackgroundResource(R.drawable.active_button);
+                } else {
+                    Button btn2 = root.findViewById(R.id.seat2);
+                    btn2.setBackgroundResource(R.drawable.inactive_button);
+                    tableNum = 2;
+                    new Thread(new ConnectSetState()).start();
+                    table2 = 1;
+                }
+            }
+        });
+        switch3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    Button btn3 = root.findViewById(R.id.seat3);
+                    btn3.setBackgroundResource(R.drawable.active_button);
+                    //status
+                } else {
+                    Button btn3 = root.findViewById(R.id.seat3);
+                    btn3.setBackgroundResource(R.drawable.inactive_button);
+                    tableNum = 3;
+                    new Thread(new ConnectSetState()).start();
+                    table3 = 1;
+                }
+            }
+        });
+        switch4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    //status
+                    Button btn4 = root.findViewById(R.id.seat4);
+                    btn4.setBackgroundResource(R.drawable.active_button);
+                } else {
+                    Button btn4 = root.findViewById(R.id.seat4);
+                    btn4.setBackgroundResource(R.drawable.inactive_button);
+                    tableNum = 4;
+                    new Thread(new ConnectSetState()).start();
+                    table4 = 1;
                 }
             }
         });
@@ -122,6 +189,52 @@ public class SeatManageFragment extends Fragment {
             }
         });
 
+        seat2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                tableNum=2;
+                new Thread(new ConnectGetOrders()).start();
+                recyclerView=dialog.findViewById(R.id.recyclerView_table);
+                recyclerView.setHasFixedSize(true);
+                mAdapter = new SeatOrderAdapter(TableOrderList);
+                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+                recyclerView.setLayoutManager(mLayoutManager);
+                recyclerView.setAdapter(mAdapter);
+                dialog.show();
+            }
+        });
+
+        seat3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                tableNum=3;
+                new Thread(new ConnectGetOrders()).start();
+                recyclerView=dialog.findViewById(R.id.recyclerView_table);
+                recyclerView.setHasFixedSize(true);
+                mAdapter = new SeatOrderAdapter(TableOrderList);
+                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+                recyclerView.setLayoutManager(mLayoutManager);
+                recyclerView.setAdapter(mAdapter);
+                dialog.show();
+            }
+        });
+
+        seat4.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                tableNum=4;
+                new Thread(new ConnectGetOrders()).start();
+                recyclerView=dialog.findViewById(R.id.recyclerView_table);
+                recyclerView.setHasFixedSize(true);
+                mAdapter = new SeatOrderAdapter(TableOrderList);
+                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+                recyclerView.setLayoutManager(mLayoutManager);
+                recyclerView.setAdapter(mAdapter);
+                dialog.show();
+            }
+        });
+
+
 
         return root;
 
@@ -153,10 +266,6 @@ public class SeatManageFragment extends Fragment {
                         if (seatOrder.get(i).getTableNum()==4){table4=0; }
                     }
                 }
-                System.out.println(table1);
-                System.out.println(table2);
-                System.out.println(table3);
-                System.out.println(table4);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -184,6 +293,19 @@ public class SeatManageFragment extends Fragment {
                     TableOrderList.add(new SeatOrder(seatOrder.get(i).getMenuName(),seatOrder.get(i).getMenuPrice(),
                             seatOrder.get(i).getMenuCount()));
                 }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public class ConnectSetState implements Runnable {
+
+        @Override
+        public void run() {
+            HttpService httpService = HttpClient.getApiService();
+            try {
+               Response<Message> changeResponse = httpService.updateOrderState(storeName, 1, tableNum).execute();
             } catch (IOException e) {
                 e.printStackTrace();
             }
