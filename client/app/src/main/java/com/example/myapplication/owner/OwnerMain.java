@@ -1,5 +1,6 @@
 package com.example.myapplication.owner;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -58,13 +59,13 @@ public class OwnerMain extends AppCompatActivity {
         newFragment.show(getSupportFragmentManager(),"datePicker");
     }
 
+    @SuppressLint("DefaultLocale")
     public void processDatePickerResult(int year, int month, int day){
-        String month_string = Integer.toString(month+1);
-        String day_string = Integer.toString(day);
         String year_string = Integer.toString(year);
+        String day_string = String.format("%02d", day);
+        String month_string = String.format("%02d", month+1);
         String dateMessage = (year_string+"-"+month_string+"-"+day_string);
 
-        Toast.makeText(this,"Date: "+dateMessage,Toast.LENGTH_SHORT).show();
         EditText text = (EditText) findViewById(R.id.check_date);
         text.setText(dateMessage);
     }

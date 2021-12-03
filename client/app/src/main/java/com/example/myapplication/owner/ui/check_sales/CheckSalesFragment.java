@@ -1,5 +1,6 @@
 package com.example.myapplication.owner.ui.check_sales;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,15 +17,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import com.example.myapplication.MainActivity;
-import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentOwnerCheckSalesBinding;
 import com.example.myapplication.owner.ui.menu_manage.MenuDto;
 import com.example.myapplication.retrofit2.HttpClient;
 import com.example.myapplication.retrofit2.HttpService;
-import com.example.myapplication.signup.OwnerSignUpDto;
 import com.example.myapplication.store.StoreSignUpDto;
 
 import java.io.IOException;
@@ -38,14 +35,14 @@ import retrofit2.Response;
 public class CheckSalesFragment extends Fragment implements View.OnClickListener{
     private CheckSalesViewModel checkSalesViewModel;
     private FragmentOwnerCheckSalesBinding binding;
-    private OrdersAdapter oAdapter;
     private RecyclerView recyclerView;
+    private OrdersAdapter oAdapter;
     String loginId=((MainActivity)MainActivity.context_main).var;
     public static ArrayList<Sales> InsertOrderList = new ArrayList<>();
-    static LocalDate date;
+    static String date;
+    static View root;
 
-
-
+    @SuppressLint("NotifyDataSetChanged")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -54,27 +51,24 @@ public class CheckSalesFragment extends Fragment implements View.OnClickListener
                 new ViewModelProvider(this).get(CheckSalesViewModel.class);
 
         binding = FragmentOwnerCheckSalesBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+        root = binding.getRoot();
 
-
-        Button showSale_button=root.findViewById(R.id.check_sales);
+        Button showSale_button=binding.checkSales;
         showSale_button.setOnClickListener(new View.OnClickListener() {
             @SneakyThrows
             @Override
             public void onClick(View view) {
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                EditText text = (EditText) root.findViewById(R.id.check_date);
-                String temp;
-                temp = text.getText().toString();
-                date = LocalDate.parse(temp, formatter);
+                EditText text = (EditText) binding.checkDate;
+                date = text.getText().toString();
                 new Thread(new ConnectDBRunner()).start();
             }
         });
-        recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView_sales);
+
+        recyclerView = (RecyclerView) binding.recyclerViewSales;
         recyclerView.setHasFixedSize(true);
-        oAdapter = new OrdersAdapter(InsertOrderList);
         RecyclerView.LayoutManager oLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(oLayoutManager);
+        oAdapter = new OrdersAdapter(InsertOrderList);
         recyclerView.setAdapter(oAdapter);
 
         return root;
@@ -87,6 +81,7 @@ public class CheckSalesFragment extends Fragment implements View.OnClickListener
     }
 
     public class ConnectDBRunner implements Runnable {
+
 
         @Override
         public void run() {
@@ -106,7 +101,7 @@ public class CheckSalesFragment extends Fragment implements View.OnClickListener
                     InsertOrderList.add(i, new Sales(menuList.get(i).getMenuName(), 0, 0));
                 }
                 for(int i=0; i<orderList.size(); i++){
-                    if (sdf.format(orderList.get(i).getOrderDate()).equals(date.toString())){
+                    if (sdf.format(orderList.get(i).getOrderDate()).equals(date)){
                         for(int j=0; j<menuList.size(); j++){
                             if (orderList.get(i).getMenuName().equals(menuList.get(j).getMenuName())){
                                 InsertOrderList.set(j, new Sales(orderList.get(i).getMenuName(),
@@ -129,6 +124,5 @@ public class CheckSalesFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void onClick(View view){
-
     }
 }

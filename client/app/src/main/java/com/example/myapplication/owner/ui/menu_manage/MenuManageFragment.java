@@ -56,8 +56,7 @@ public class MenuManageFragment extends Fragment implements View.OnClickListener
         binding = FragmentOwnerMenuManageBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        Button add_menu=root.findViewById(R.id.bt_go_menu_page);
-
+        Button add_menu=binding.btGoMenuPage;
         add_menu.setOnClickListener(new View.OnClickListener(){ //프레그먼트에서 엑티비티 호출할때
             @Override
             public void onClick(View view) {
@@ -65,7 +64,7 @@ public class MenuManageFragment extends Fragment implements View.OnClickListener
                 startActivity(intent);
             }
         });
-        recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView_menu);
+        recyclerView = (RecyclerView) binding.recyclerViewMenu;
         recyclerView.setHasFixedSize(true);
         mAdapter = new MenuAdapter(InsertMenuList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
