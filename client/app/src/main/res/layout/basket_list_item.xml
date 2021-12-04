@@ -85,7 +85,7 @@
                         android:textSize="10pt"
                         android:gravity="center"
                         android:background="@color/white"
-                        android:onClick="plus"/>
+                        />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

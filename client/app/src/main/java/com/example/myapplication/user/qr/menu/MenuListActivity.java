@@ -34,7 +34,6 @@ public class MenuListActivity extends Fragment {
         listView = (ListView) v.findViewById(R.id.menu_list);
         dataSetting();
 
-
         return v;
     }
 
@@ -54,13 +53,4 @@ public class MenuListActivity extends Fragment {
         }
         listView.setAdapter(adapter);
     }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-    }
-
-
-
 }

@@ -1,6 +1,7 @@
 package com.example.myapplication.user.qr.basket;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +11,12 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.ActivityChooserView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.example.myapplication.R;
+import com.example.myapplication.user.qr.TabActivity;
 import com.example.myapplication.user.qr.menu.MenuItem;
 
 import java.util.ArrayList;
@@ -18,8 +24,11 @@ import java.util.ArrayList;
 public class BasketListAdapter extends BaseAdapter {
 
     private ArrayList<BasketItem> basketItems = new ArrayList<>();
-    private Button add_btn;
-    private Button minus_btn;
+    private OnItemClick click;
+
+    BasketListAdapter(OnItemClick onItemClick){
+        this.click = onItemClick;
+    }
 
     @Override
     public int getCount() {
@@ -42,6 +51,7 @@ public class BasketListAdapter extends BaseAdapter {
         Context context = viewGroup.getContext();
         BasketHolder basketHolder;
 
+
         if(view == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.basket_list_item, viewGroup, false);
@@ -51,6 +61,11 @@ public class BasketListAdapter extends BaseAdapter {
             basketHolder.menuCost = view.findViewById(R.id.tv_basket_cost);
             basketHolder.menuNum = view.findViewById(R.id.tv_basket_num);
             basketHolder.menuTotal = view.findViewById(R.id.tv_basket_total);
+            basketHolder.add_btn = view.findViewById(R.id.plus_button);
+            basketHolder.minus_btn = view.findViewById(R.id.minus_button);
+
+
+
             view.setTag(basketHolder);
         }else{
             basketHolder = (BasketHolder) view.getTag();
@@ -65,12 +80,40 @@ public class BasketListAdapter extends BaseAdapter {
         basketHolder.menuCost.setText(basketItem.getMenuCost());
         basketHolder.menuNum.setText(basketItem.getMenuNum());
         basketHolder.menuTotal.setText(basketItem.getMenuTotal());
+        BasketListActivity activity = new BasketListActivity();
+        basketHolder.add_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int num = Integer.parseInt(basketHolder.menuNum.getText().toString())+1;
+                int cost = Integer.parseInt(basketHolder.menuCost.getText().toString());
+                basketItem.setMenuNum(Integer.toString(num));
+                basketItem.setMenuTotal(Integer.toString(cost * num));
+                basketHolder.menuNum.setText(Integer.toString(num));
+                basketHolder.menuTotal.setText(Integer.toString(cost * num));
 
-        add_btn = (Button) view.findViewById(R.id.plus_button);
-        add_btn.setTag(basketItem);
+                click.onClick(Integer.toString(cost*num));
+            }
+        });
 
-        minus_btn = (Button) view.findViewById(R.id.minus_button);
-        minus_btn.setTag(basketItem);
+        basketHolder.minus_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int num = Integer.parseInt(basketHolder.menuNum.getText().toString())-1;
+                int cost = Integer.parseInt(basketHolder.menuCost.getText().toString());
+
+                if(num == 0){
+                    removeItem(basketItem);
+                    notifyDataSetChanged();
+                }
+
+                basketItem.setMenuNum(Integer.toString(num));
+                basketItem.setMenuTotal(Integer.toString(cost * num));
+                basketHolder.menuNum.setText(Integer.toString(num));
+                basketHolder.menuTotal.setText(Integer.toString(cost * num));
+
+                click.onClick(Integer.toString(cost*num));
+            }
+        });
 
         return view;
     }
@@ -82,5 +125,4 @@ public class BasketListAdapter extends BaseAdapter {
     public void removeItem(BasketItem basketItem){
         basketItems.remove(basketItem);
     }
-
 }

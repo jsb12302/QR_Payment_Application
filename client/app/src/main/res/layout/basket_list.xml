@@ -17,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:id="@+id/Total"
         android:text="10,000 원 주문하기"
         android:textStyle="bold"
         android:textColor="#0E3F6C"
