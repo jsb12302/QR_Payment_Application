@@ -50,7 +50,6 @@ public class MenuListActivity extends Fragment {
             dto.setMenuName(name[i]);
             dto.setMenuContents(contents[i]);
             dto.setMenuCost(cost[i]);
-
             adapter.addItem(dto);
         }
         listView.setAdapter(adapter);

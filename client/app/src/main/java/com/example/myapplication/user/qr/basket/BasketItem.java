@@ -6,6 +6,24 @@ public class BasketItem {
 
     private String menuName;
     private String menuCost;
+    private String menuTotal;
+    private String menuNum;
+
+    public String getMenuTotal() {
+        return menuTotal;
+    }
+
+    public void setMenuTotal(String menuTotal) {
+        this.menuTotal = menuTotal;
+    }
+
+    public String getMenuNum() {
+        return menuNum;
+    }
+
+    public void setMenuNum(String menuNum) {
+        this.menuNum = menuNum;
+    }
 
     public String getMenuName() {
         return menuName;

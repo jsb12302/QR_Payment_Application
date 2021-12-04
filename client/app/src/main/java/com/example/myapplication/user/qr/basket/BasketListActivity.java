@@ -20,7 +20,6 @@ import com.example.myapplication.user.qr.menu.SendViewModel;
 
 public class BasketListActivity extends Fragment {
     private ListView listView;
-    private SendViewModel sendViewModel;
     private BasketListAdapter adapter;
 
     @Nullable
@@ -29,25 +28,17 @@ public class BasketListActivity extends Fragment {
         View v = inflater.inflate(R.layout.basket_list, container, false);
         listView = (ListView) v.findViewById(R.id.basket_list);
         adapter = new BasketListAdapter();
-//        getParentFragmentManager().setFragmentResultListener("requestKey", this, new FragmentResultListener() {
-//            @Override
-//            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-//                String name = result.getString("Name");
-//                System.out.println("Name : "+name);
-//                String cost = result.getString("Cost");
-//                System.out.println("Cost : "+cost);
-//                dataSetting(name, cost);
-//            }
-//        });
-
         return v;
     }
 
-    public void dataSetting(String name, String cost){
+    public void dataSetting(String name, String cost, String num){
         BasketItem dto = new BasketItem();
         dto.setMenuName(name);
         dto.setMenuCost(cost);
-        adapter.addItem(name, cost);
+        dto.setMenuNum(num);
+        String total = Integer.toString(Integer.parseInt(cost)*Integer.parseInt(num));
+        dto.setMenuTotal(total);
+        adapter.addItem(dto);
         listView.setAdapter(adapter);
     }
 
@@ -62,7 +53,27 @@ public class BasketListActivity extends Fragment {
                 System.out.println("Name : "+name);
                 String cost = result.getString("Cost");
                 System.out.println("Cost : "+cost);
-                dataSetting(name, cost);
+                int len = listView.getCount();
+                if (len > 0) {
+                    for (int i = 0; i < len; i++) {
+                        BasketItem item = (BasketItem) listView.getItemAtPosition(i);
+                        if (item.getMenuName().equals(name)) {
+                            int num = Integer.parseInt(item.getMenuNum());
+                            int total = Integer.parseInt(item.getMenuTotal());
+                            num += 1;
+                            total *= num;
+                            item.setMenuNum(Integer.toString(num));
+                            item.setMenuTotal(Integer.toString(total));
+                            adapter.notifyDataSetChanged();
+                            listView.setAdapter(adapter);
+                            break;
+                        }else if (i == len-1){
+                            dataSetting(name, cost, "1");
+                        }
+                    }
+                }else{
+                    dataSetting(name, cost, "1");
+                }
             }
         });
 

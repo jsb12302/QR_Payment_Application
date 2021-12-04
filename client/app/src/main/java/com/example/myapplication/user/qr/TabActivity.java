@@ -14,7 +14,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.user.qr.basket.BasketItem;
 import com.example.myapplication.user.qr.basket.BasketListActivity;
+import com.example.myapplication.user.qr.basket.BasketListAdapter;
 import com.example.myapplication.user.qr.menu.MenuItem;
 import com.example.myapplication.user.qr.menu.MenuListActivity;
 import com.example.myapplication.user.qr.menu.SendViewModel;
@@ -27,22 +29,20 @@ public class TabActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private FragementAdapter adapter;
-    private Button btnAdd, btnMinus;
-    private TextView tv_total, tv_num;
-    private int count, total = 0;
-
+    private BasketListAdapter basketadapter;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_menu);
 
-        tabLayout=findViewById(R.id.tabs);
-        viewPager=findViewById(R.id.pager);
+        tabLayout = findViewById(R.id.tabs);
+        viewPager = findViewById(R.id.pager);
         TextView tx = (TextView) findViewById(R.id.set_store_name);
         Intent intent = getIntent();
         tx.setText(intent.getStringExtra("store_name"));
-        adapter=new FragementAdapter(getSupportFragmentManager(),1);
+        adapter = new FragementAdapter(getSupportFragmentManager(), 1);
 
         //FragmentAdapter에 컬렉션 담기
         adapter.addFragment(new MenuListActivity());
@@ -57,31 +57,35 @@ public class TabActivity extends AppCompatActivity {
         tabLayout.getTabAt(0).setText("메뉴");
         tabLayout.getTabAt(1).setText("장바구니");
 
-//        btnAdd = findViewById(R.id.plus_button);
-//        btnMinus = findViewById(R.id.minus_button);
-//
-//        tv_num = findViewById(R.id.tv_basket_num);
-//        tv_total = findViewById(R.id.tv_basket_total);
-//        tv_num.setText(count);
-//        int cost = Integer.parseInt(findViewById(R.id.tv_basket_cost).toString());
-//
-//        btnAdd.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                count++;
-//                tv_num.setText(count);
-//                tv_total.setText(cost*count);
+    }
+
+    public void plus(View v) {
+        if (v.getId() == R.id.plus_button){
+            listView = v.findViewById(R.id.basket_list);
+            basketadapter = new BasketListAdapter();
+            BasketItem dto = (BasketItem) v.getTag();
+            String num = Integer.toString(Integer.parseInt(dto.getMenuNum())+1);
+            String total = Integer.toString(Integer.parseInt(dto.getMenuCost())*Integer.parseInt(num));
+            dto.setMenuTotal(total);
+            dto.setMenuNum(num);
+            basketadapter.notifyDataSetChanged();
+            listView.setAdapter(basketadapter);
+        }
+    }
+
+    public void minus(View v) {
+//        if (v.getId() == R.id.minus_button){
+//            BasketItem dto = (BasketItem) v.getTag();
+//            String num = Integer.toString(Integer.parseInt(dto.getMenuNum())-1);
+//            if (num.equals("0")){
+//                basketListActivity.adapter.removeItem(dto);
 //            }
-//        });
-//
-//        btnMinus.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                count--;
-//                tv_num.setText(count);
-//                tv_total.setText(cost*count);
-//            }
-//        });
+//            String total = Integer.toString(Integer.parseInt(dto.getMenuCost())*Integer.parseInt(num));
+//            dto.setMenuTotal(total);
+//            dto.setMenuNum(num);
+//            basketListActivity.adapter.notifyDataSetChanged();
+//            basketListActivity.listView.setAdapter(basketListActivity.adapter);
+//        }
     }
 
     public void click(View v) {

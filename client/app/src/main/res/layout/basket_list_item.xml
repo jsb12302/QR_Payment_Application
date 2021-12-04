@@ -65,7 +65,8 @@
                         android:textStyle="bold"
                         android:textSize="10pt"
                         android:gravity="center"
-                        android:background="@color/white"/>
+                        android:background="@color/white"
+                        android:onClick="minus"/>
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -83,7 +84,8 @@
                         android:text="+"
                         android:textSize="10pt"
                         android:gravity="center"
-                        android:background="@color/white"/>
+                        android:background="@color/white"
+                        android:onClick="plus"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

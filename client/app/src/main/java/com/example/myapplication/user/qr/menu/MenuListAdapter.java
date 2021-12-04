@@ -26,7 +26,6 @@ import java.util.ArrayList;
 public class MenuListAdapter extends BaseAdapter {
 
     private ArrayList<MenuItem> menuItems = new ArrayList<>();
-    private SendViewModel sendViewModel;
     private Button listButton;
 
     @Override
