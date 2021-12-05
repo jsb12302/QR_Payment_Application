@@ -21,6 +21,7 @@ import com.example.myapplication.R;
 import com.example.myapplication.retrofit2.HttpClient;
 import com.example.myapplication.retrofit2.HttpService;
 import com.example.myapplication.user.UserMain;
+import com.example.myapplication.user.qr.TabActivity;
 import com.naver.maps.geometry.LatLng;
 import com.naver.maps.map.CameraPosition;
 import com.naver.maps.map.CameraUpdate;
@@ -235,7 +236,10 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     }
 
     public void goStore(View v) {
-        Intent intent = new Intent(getApplicationContext(), UserMain.class);
+        TextView tv = v.findViewById(R.id.storeName);
+        String str = tv.getText().toString();
+        Intent intent = new Intent(getApplicationContext(), ShopTabActivity.class);
+        intent.putExtra("store_name", str);
         startActivity(intent);
     }
 

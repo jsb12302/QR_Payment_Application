@@ -32,27 +32,18 @@ public class ScanQRActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-        TextView textViewName = (TextView) findViewById(R.id.set_store_name);
         if (result != null) {
             //qrcode 가 없으면
             if (result.getContents() == null) {
                 Toast.makeText(ScanQRActivity.this, "취소!", Toast.LENGTH_SHORT).show();
             } else {
-                //qrcode 결과가 있으면
                 Toast.makeText(ScanQRActivity.this, "스캔완료!", Toast.LENGTH_SHORT).show();
-//                try {
-                    //data를 json으로 변환
-//                    JSONObject obj = new JSONObject(result.getContents());
-                String str = result.getContents();
-                System.out.println(str);
+
                 Intent intents = new Intent(getApplicationContext(), TabActivity.class);
-                intents.putExtra("store_name", result.getContents());
+                intents.putExtra("store_name", result.getContents().split(",")[0]);
+                intents.putExtra("table_num", result.getContents().split(",")[1]);
                 startActivity(intents);
-//                textViewName.setText(result.getContents());
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                    //Toast.makeText(MainActivity.this, result.getContents(), Toast.LENGTH_LONG).show();
-//                }
+                ScanQRActivity.this.finish();
             }
 
         } else {

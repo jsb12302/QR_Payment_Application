@@ -23,7 +23,8 @@
         android:textColor="#0E3F6C"
         android:textSize="20sp"
         android:layout_margin="18dp"
-        android:gravity="center">
+        android:gravity="center"
+        android:onClick="pay">
     </TextView>
 
 

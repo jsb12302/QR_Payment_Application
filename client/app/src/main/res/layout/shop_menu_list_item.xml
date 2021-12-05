@@ -9,15 +9,15 @@
         android:orientation="horizontal"
         android:weightSum="10"
         android:padding="10dp"
->
+        >
         <ImageView
             android:layout_weight="3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:padding="3dp"
-            android:id="@+id/iv_menu_image"/>
+            android:id="@+id/iv_shop_menu_image"/>
         <LinearLayout
-            android:layout_weight="5"
+            android:layout_weight="7"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -33,7 +33,7 @@
                 android:textSize="25sp"
                 android:gravity="center_vertical"
                 android:textColor="@color/black"
-                android:id="@+id/tv_menu_name"/>
+                android:id="@+id/tv_shop_menu_name"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -42,7 +42,7 @@
                 android:textSize="15sp"
                 android:gravity="center_vertical"
                 android:textColor="@color/black"
-                android:id="@+id/tv_menu_contents"/>
+                android:id="@+id/tv_shop_menu_contents"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -52,24 +52,7 @@
                 android:textSize="20sp"
                 android:gravity="center_vertical"
                 android:textColor="@color/black"
-                android:id="@+id/tv_menu_cost"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_weight="2"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:gravity="center">
-            <Button
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:id="@+id/menu_list_button"
-                android:background="@drawable/circle_button"
-                android:text="+"
-                android:onClick="click"
-                android:textSize="12pt"
-                android:gravity="center">
-
-            </Button>
+                android:id="@+id/tv_shop_menu_cost"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
