@@ -108,6 +108,7 @@ public class SeatManageFragment extends Fragment {
                     btn1.setBackgroundResource(R.drawable.inactive_button);
                     tableNum = 1;
                     new Thread(new ConnectSetState()).start();
+                    new Thread(new ConnectSeatState()).start();
                     table1 = 1;
                 }
             }
@@ -124,6 +125,7 @@ public class SeatManageFragment extends Fragment {
                     btn2.setBackgroundResource(R.drawable.inactive_button);
                     tableNum = 2;
                     new Thread(new ConnectSetState()).start();
+                    new Thread(new ConnectSeatState()).start();
                     table2 = 1;
                 }
             }
@@ -140,6 +142,7 @@ public class SeatManageFragment extends Fragment {
                     btn3.setBackgroundResource(R.drawable.inactive_button);
                     tableNum = 3;
                     new Thread(new ConnectSetState()).start();
+                    new Thread(new ConnectSeatState()).start();
                     table3 = 1;
                 }
             }
@@ -156,6 +159,7 @@ public class SeatManageFragment extends Fragment {
                     btn4.setBackgroundResource(R.drawable.inactive_button);
                     tableNum = 4;
                     new Thread(new ConnectSetState()).start();
+                    new Thread(new ConnectSeatState()).start();
                     table4 = 1;
                 }
             }
@@ -306,7 +310,19 @@ public class SeatManageFragment extends Fragment {
             HttpService httpService = HttpClient.getApiService();
             try {
                Response<Message> changeResponse = httpService.updateOrderState(storeName, 1, tableNum).execute();
-               Response<Message> changeResponses = httpService.updateSeatState(storeName,1, tableNum).execute();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public class ConnectSeatState implements Runnable {
+
+        @Override
+        public void run() {
+            HttpService httpService = HttpClient.getApiService();
+            try {
+                Response<Message> changeResponses = httpService.updateSeatState(storeName,1, tableNum).execute();
             } catch (IOException e) {
                 e.printStackTrace();
             }
