@@ -15,6 +15,6 @@ public interface SeatRepository extends JpaRepository<Seat,Long> {
     @Modifying
     @Query(value = "update Seat m set m.tableStatus=:tableStatus where m.storeName=:storeName and m.tableNumber=:tableNumber and m.tableStatus=0")
     void changeSeatState(@Param("storeName")String storeName,
-                          @Param("orderState")Integer orderState,
+                          @Param("tableStatus")Integer tableStatus,
                           @Param("tableNumber") Integer tableNumber) throws Exception;
 }

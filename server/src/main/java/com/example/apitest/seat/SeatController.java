@@ -29,8 +29,8 @@ public class SeatController {
 
     @PostMapping("/changeSeatState")
     @ResponseBody
-    public Message updateSeatState(@RequestParam String storeName, @RequestParam Integer orderState,
-                                    @RequestParam Integer tableNum) throws Exception {
-        return seatService.changeSeatState(storeName, orderState, tableNum);
+    public Message updateSeatState(@RequestParam String storeName, @RequestParam Integer tableStatus,
+                                    @RequestParam Integer tableNumber) throws Exception {
+        return seatService.changeSeatState(storeName, tableStatus, tableNumber);
     }
 }

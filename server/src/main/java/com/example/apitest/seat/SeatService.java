@@ -30,8 +30,8 @@ public class SeatService {
     }
 
     @Transactional
-    public Message changeSeatState(String storeName, Integer orderState, Integer tableNum) throws Exception {
-        seatRepository.changeSeatState(storeName, orderState, tableNum);
+    public Message changeSeatState(String storeName, Integer tableStatus, Integer tableNumber) throws Exception {
+        seatRepository.changeSeatState(storeName, tableStatus, tableNumber);
         return null;
     }
 }
