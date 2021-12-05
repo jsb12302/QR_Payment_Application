@@ -11,8 +11,10 @@ import com.example.myapplication.signup.OwnerSignUpDto;
 import com.example.myapplication.signup.UserSignUpDto;
 import com.example.myapplication.store.StoreSignUpDto;
 import com.example.myapplication.user.map.Stores;
+import com.example.myapplication.user.map.menu.ShopMenuItem;
 import com.example.myapplication.user.map.seat.SeatDTO;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -74,7 +76,7 @@ public interface HttpService {
                                     @Query("menuName")String menuName);
 
     @GET("/img")
-    Call<Void> uploadImage(@Query("loginId")String loginId,@Query("menuName")String menuName);
+    Call<Void> uploadImage(@Query("loginId")String storeName,@Query("menuName")String menuName);
 
     @POST("/getStoreInfo")
     Call<List<Stores>> getStore();
@@ -100,4 +102,15 @@ public interface HttpService {
 
     @POST("/getSeat")
     Call<List<SeatDTO>> getSeat(@Query("storeName")String storeName);
+
+    @POST("/getMenus")
+    Call<List<ShopMenuItem>> getMenus(@Query("storeName")String storeName);
+
+    @POST("/addOrder")
+    Call<Message> addOrder(@Query("orderDate") String orderDate, @Body OrdersDTO ordersDTO);
+
+    @POST("/changeSeatStateToUse")
+    Call<Message> updateSeatStateToUse(@Query("storeName")String storeName,
+                                  @Query("tableStatus")Integer tableStatus,
+                                  @Query("tableNumber")Integer tableNumber);
 }

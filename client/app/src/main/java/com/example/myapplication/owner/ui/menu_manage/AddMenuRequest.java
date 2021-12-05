@@ -14,24 +14,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.message.Message;
-import com.example.myapplication.message.Status;
 import com.example.myapplication.retrofit2.HttpClient;
 import com.example.myapplication.retrofit2.HttpService;
-import com.example.myapplication.signup.OwnerSignUpRequest;
 import com.example.myapplication.store.StoreSignUpDto;
-import com.example.myapplication.user.UserMain;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
-import java.util.List;
 
+import lombok.SneakyThrows;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
-import java.util.List;
 
 import retrofit2.Response;
 
@@ -75,6 +71,7 @@ public class AddMenuRequest extends AppCompatActivity{
     private String menuDesc;
 
 
+    @SneakyThrows
     public void menu_add_button(View v){
 
         EditText menuNameText = (EditText) findViewById(R.id.munu_name);
@@ -87,6 +84,9 @@ public class AddMenuRequest extends AppCompatActivity{
 
 
         new Thread(new ConnectRunner()).start();
+
+        AddMenuRequest.this.finish();
+        Thread.sleep(500);
     }
 
     public class ConnectRunner implements Runnable {
@@ -142,25 +142,6 @@ public class AddMenuRequest extends AppCompatActivity{
                 e.printStackTrace();
             }
 
-        }
-    }
-
-    public class ConnectGetRunner implements Runnable {
-
-        @Override
-        public void run() {
-            HttpService httpService=HttpClient.getApiService();
-            try {
-                Response<List<MenuDto>> menu=httpService.getMenu(loginId).execute();
-                List<MenuDto> menuList= menu.body();
-                for(int i=0;i<menuList.size();i++) {
-                    System.out.println(menuList.get(i).getMenuName());
-                }
-                System.out.println("메뉴 사이즈"+menuList.size());
-                finish();
-            }catch (IOException e){
-                e.printStackTrace();
-            }
         }
     }
 

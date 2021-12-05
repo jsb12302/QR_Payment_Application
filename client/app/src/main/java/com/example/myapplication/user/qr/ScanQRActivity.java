@@ -36,6 +36,7 @@ public class ScanQRActivity extends AppCompatActivity {
             //qrcode 가 없으면
             if (result.getContents() == null) {
                 Toast.makeText(ScanQRActivity.this, "취소!", Toast.LENGTH_SHORT).show();
+                ScanQRActivity.this.finish();
             } else {
                 Toast.makeText(ScanQRActivity.this, "스캔완료!", Toast.LENGTH_SHORT).show();
 
@@ -49,5 +50,11 @@ public class ScanQRActivity extends AppCompatActivity {
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

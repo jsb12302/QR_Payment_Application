@@ -9,13 +9,27 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
+import com.example.myapplication.message.Message;
+import com.example.myapplication.owner.ui.check_sales.OrdersDTO;
+import com.example.myapplication.retrofit2.HttpClient;
+import com.example.myapplication.retrofit2.HttpService;
+import com.example.myapplication.user.qr.basket.BasketItem;
 import com.example.myapplication.user.qr.basket.BasketListActivity;
 import com.example.myapplication.user.qr.menu.MenuItem;
 import com.example.myapplication.user.qr.menu.MenuListActivity;
 import com.google.android.material.tabs.TabLayout;
+
+
+import java.io.IOException;
+import java.util.Date;
+
+import lombok.SneakyThrows;
+import retrofit2.Response;
 
 public class TabActivity extends AppCompatActivity {
 
@@ -23,6 +37,8 @@ public class TabActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private FragmentAdapter adapter;
     private String table_num;
+    private String storeName;
+    String loginId=((MainActivity)MainActivity.context_main).var;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +49,8 @@ public class TabActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.pager);
         TextView tx = (TextView) findViewById(R.id.set_store_name);
         Intent intent = getIntent();
-        tx.setText(intent.getStringExtra("store_name"));
+        storeName = intent.getStringExtra("store_name");
+        tx.setText(storeName);
         table_num = intent.getStringExtra("table_num");
         adapter = new FragmentAdapter(getSupportFragmentManager(), 1);
 
@@ -57,7 +74,7 @@ public class TabActivity extends AppCompatActivity {
             Bundle bundle = new Bundle();
             MenuItem dto = (MenuItem) v.getTag();
             bundle.putString("Name", dto.getMenuName());
-            bundle.putString("Cost", dto.getMenuCost());
+            bundle.putString("Cost", dto.getMenuPrice());
             getSupportFragmentManager().setFragmentResult("requestKey", bundle);
         }
     }
@@ -79,11 +96,40 @@ public class TabActivity extends AppCompatActivity {
                 .setNeutralButton("예", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        System.out.println(table_num);
+                        new Thread(new ConnectGetRunner()).start();
                         TabActivity.this.finish();
                     }
                 })
                 .setCancelable(false)
                 .show();
+    }
+
+    public class ConnectGetRunner implements Runnable {
+
+        @SneakyThrows
+        @Override
+        public void run() {
+            ListView listView = findViewById(R.id.basket_list);
+            HttpService httpService= HttpClient.getApiService();
+
+            for (int i = 0; i<listView.getCount();i++){
+                BasketItem dto = (BasketItem) listView.getItemAtPosition(i);
+                Date today = new Date();
+                String temp = today.toString();
+
+
+                OrdersDTO ordersDTO = new OrdersDTO(loginId, storeName, dto.getMenuName(),
+                        Integer.parseInt(dto.getMenuCost()), Integer.parseInt(dto.getMenuNum()),
+                        null, Integer.parseInt(table_num), 1);
+                try {
+                    Response<Message> order = httpService.addOrder(temp, ordersDTO).execute();
+                    Response<Message> seat =  httpService.updateSeatStateToUse(storeName, 0, Integer.parseInt(table_num)).execute();
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
+
+
+        }
     }
 }

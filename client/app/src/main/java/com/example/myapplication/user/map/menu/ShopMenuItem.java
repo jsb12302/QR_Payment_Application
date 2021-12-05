@@ -7,8 +7,31 @@ public class ShopMenuItem {
 
     private Bitmap menuPicture;
     private String menuName;
-    private String menuContents;
-    private String menuCost;
+    private String menuDesc;
+    private String menuPrice;
+
+    public ShopMenuItem(Bitmap menuPicture, String menuName, String menuContents, String menuCost) {
+        this.menuPicture = menuPicture;
+        this.menuName = menuName;
+        this.menuDesc = menuContents;
+        this.menuPrice = menuCost;
+    }
+
+    public String getMenuDesc() {
+        return menuDesc;
+    }
+
+    public void setMenuDesc(String menuDesc) {
+        this.menuDesc = menuDesc;
+    }
+
+    public String getMenuPrice() {
+        return menuPrice;
+    }
+
+    public void setMenuPrice(String menuPrice) {
+        this.menuPrice = menuPrice;
+    }
 
     public Bitmap getMenuPicture() {
         return menuPicture;
@@ -24,21 +47,5 @@ public class ShopMenuItem {
 
     public void setMenuName(String menuName) {
         this.menuName = menuName;
-    }
-
-    public String getMenuContents() {
-        return menuContents;
-    }
-
-    public void setMenuContents(String menuContents) {
-        this.menuContents = menuContents;
-    }
-
-    public String getMenuCost() {
-        return menuCost;
-    }
-
-    public void setMenuCost(String menuCost) {
-        this.menuCost = menuCost;
     }
 }

@@ -88,11 +88,15 @@ public class SeatManageFragment extends Fragment {
         Switch switch3=root.findViewById(R.id.seat_switch3);
         if(table3==0){
             switch3.setChecked(true);
+            Button btn3 = root.findViewById(R.id.seat3);
+            btn3.setBackgroundResource(R.drawable.active_button);
         }
         @SuppressLint("UseSwitchCompatOrMaterialCode")
         Switch switch4=root.findViewById(R.id.seat_switch4);
         if(table4==0){
             switch4.setChecked(true);
+            Button btn4 = root.findViewById(R.id.seat4);
+            btn4.setBackgroundResource(R.drawable.active_button);
         }
 
 

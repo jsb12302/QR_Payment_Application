@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -51,8 +50,8 @@ public class ShopMenuListAdapter extends BaseAdapter {
 
         iv_image.setImageBitmap(menuItem.getMenuPicture());
         tv_name.setText(menuItem.getMenuName());
-        tv_contents.setText(menuItem.getMenuContents());
-        tv_cost.setText(menuItem.getMenuCost());
+        tv_contents.setText(menuItem.getMenuDesc());
+        tv_cost.setText(menuItem.getMenuPrice());
 
         return view;
     }

@@ -1,7 +1,7 @@
 package com.example.myapplication.owner.ui.check_sales;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +12,6 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,6 +42,7 @@ public class CheckSalesFragment extends Fragment implements View.OnClickListener
     static String date;
     static View root;
 
+
     @SuppressLint("NotifyDataSetChanged")
     @Nullable
     @Override
@@ -62,6 +62,9 @@ public class CheckSalesFragment extends Fragment implements View.OnClickListener
                 EditText text = (EditText) binding.checkDate;
                 date = text.getText().toString();
                 new Thread(new ConnectDBRunner()).start();
+                oAdapter.notifyDataSetChanged();
+                Thread.sleep(500);
+                onAttach(root.getContext());
             }
         });
 

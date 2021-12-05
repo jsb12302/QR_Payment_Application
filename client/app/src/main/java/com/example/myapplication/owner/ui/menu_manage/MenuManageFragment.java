@@ -1,5 +1,6 @@
 package com.example.myapplication.owner.ui.menu_manage;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,19 +12,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.MainActivity;
-import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentOwnerMenuManageBinding;
 import com.example.myapplication.retrofit2.HttpClient;
 import com.example.myapplication.retrofit2.HttpService;
 
-import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -31,6 +29,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.SneakyThrows;
 import retrofit2.Response;
 
 public class MenuManageFragment extends Fragment implements View.OnClickListener{
@@ -47,6 +46,15 @@ public class MenuManageFragment extends Fragment implements View.OnClickListener
     String loginId=((MainActivity)MainActivity.context_main).var; //로그인 아이디 가져오기
     private MenuManageViewModel menuManageViewModel;
     private FragmentOwnerMenuManageBinding binding;
+
+
+    @SneakyThrows
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        new Thread(new ConnectGetRunner()).start();
+        Thread.sleep(500);
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState){
@@ -74,11 +82,6 @@ public class MenuManageFragment extends Fragment implements View.OnClickListener
         return root;
     }
 
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        new Thread(new ConnectGetRunner()).start();
-    }
-
     public class ConnectGetRunner implements Runnable {
 
         @Override
@@ -92,13 +95,8 @@ public class MenuManageFragment extends Fragment implements View.OnClickListener
 
                 for(int i=0;i<menuList.size();i++) {
 
-                    String menuName=menuList.get(i).getImage();
-                    int start=menuName.lastIndexOf("\\");
-                    int finish=menuName.lastIndexOf(".");
-                    menuName=menuName.substring(start+1,finish);
-
                     InsertMenuList.add(new Menu(menuList.get(i).getMenuName(),menuList.get(i).getMenuPrice(),
-                            menuList.get(i).getMenuDesc(),"http://10.0.2.2:8080/img?loginId=" + menuList.get(i).storeName + "&menuName=" + menuName));
+                            menuList.get(i).getMenuDesc(),"http://10.0.2.2:8080/img?storeName=" + menuList.get(i).storeName + "&menuName=" + menuList.get(i).menuName));
                 }
 
 
@@ -116,7 +114,6 @@ public class MenuManageFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void onClick(View view) {
-
     }
 
     private class Back extends AsyncTask<String, Integer,Bitmap> {

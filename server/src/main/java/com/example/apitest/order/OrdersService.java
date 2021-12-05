@@ -1,12 +1,15 @@
 package com.example.apitest.order;
 
 import com.example.apitest.message.Message;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 @Service
 public class OrdersService {
@@ -22,8 +25,9 @@ public class OrdersService {
     }
 
     public void JoinOrder(OrdersDTO ordersDTO){
+        Date today = new Date();
         addOrder(ordersDTO.getUserId(), ordersDTO.getStoreName(), ordersDTO.getMenuName(), ordersDTO.getMenuPrice(),
-                ordersDTO.getMenuCount(), ordersDTO.getOrderDate(), ordersDTO.getTableNum());
+                ordersDTO.getMenuCount(), today, ordersDTO.getTableNum());
     }
 
     public List<Orders> findOrder(String storeName){

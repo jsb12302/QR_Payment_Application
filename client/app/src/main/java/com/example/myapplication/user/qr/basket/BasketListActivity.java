@@ -47,9 +47,7 @@ public class BasketListActivity extends Fragment implements OnItemClick{
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
                 String name = result.getString("Name");
-                System.out.println("Name : "+name);
                 String cost = result.getString("Cost");
-                System.out.println("Cost : "+cost);
                 int len = listView.getCount();
                 if (len > 0) {
                     for (int i = 0; i < len; i++) {
@@ -84,7 +82,6 @@ public class BasketListActivity extends Fragment implements OnItemClick{
             for (int i = 0; i < len; i++) {
                 BasketItem item = (BasketItem) listView.getItemAtPosition(i);
                 total = total + Integer.parseInt(item.getMenuTotal());
-                System.out.println(total);
             }
             textView.setText(total + "원 결제하기");
         } else {
@@ -100,7 +97,6 @@ public class BasketListActivity extends Fragment implements OnItemClick{
             for (int i = 0; i < len; i++) {
                 BasketItem item = (BasketItem) listView.getItemAtPosition(i);
                 total = total + Integer.parseInt(item.getMenuTotal());
-                System.out.println(total);
             }
             textView.setText(total + "원 결제하기");
         } else {

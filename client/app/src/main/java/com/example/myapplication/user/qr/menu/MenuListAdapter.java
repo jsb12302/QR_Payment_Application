@@ -60,10 +60,10 @@ public class MenuListAdapter extends BaseAdapter {
 
         MenuItem menuItem = (MenuItem) getItem(i);
 
-        iv_image.setImageDrawable(menuItem.getMenuPicture());
+        iv_image.setImageBitmap(menuItem.getMenuPicture());
         tv_name.setText(menuItem.getMenuName());
-        tv_contents.setText(menuItem.getMenuContents());
-        tv_cost.setText(menuItem.getMenuCost());
+        tv_contents.setText(menuItem.getMenuDesc());
+        tv_cost.setText(menuItem.getMenuPrice());
         listButton = (Button) view.findViewById(R.id.menu_list_button);
         listButton.setTag(menuItem);
 

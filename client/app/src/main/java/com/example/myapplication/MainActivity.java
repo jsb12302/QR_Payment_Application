@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else if (message.getRole()== Role.ROLE_USER){
+                    var=loginId;
                     Intent intent = new Intent(getApplicationContext(), UserMain.class);
                     startActivity(intent);
                 }
