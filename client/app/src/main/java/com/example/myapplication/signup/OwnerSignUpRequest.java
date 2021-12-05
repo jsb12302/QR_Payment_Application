@@ -34,6 +34,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 import lombok.SneakyThrows;
+import retrofit2.Call;
 import retrofit2.Response;
 
 public class OwnerSignUpRequest extends AppCompatActivity {
@@ -147,6 +148,8 @@ public class OwnerSignUpRequest extends AppCompatActivity {
                         ownerId,storeName,storeHP,storeLoc,storeLatitude,storeLongitude,null,ownerNum);
                 Response<Message> loginResponse = httpService.OwnerSignUpRequest(ownerSignUpDto).execute();
                 Response<Message> StoreSignUpResponse=httpService.StoreSignUpRequest(storeSignUpDto).execute();
+                httpService.addSeat(ownerId, storeName).execute();
+
 
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);

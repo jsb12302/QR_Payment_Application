@@ -35,6 +35,10 @@ public interface HttpService {
     @POST("/ownerSignUpRequest")
     Call<Message> OwnerSignUpRequest(@Body OwnerSignUpDto ownerSignUpDto);
 
+    @POST("/addSeat")
+    Call<Void> addSeat(@Query("loginId") String loginId,
+                 @Query("storeName") String storeName);
+
     @POST("/login")
     Call<Message> login(@Body LoginRequestDto loginRequestDto);
 
