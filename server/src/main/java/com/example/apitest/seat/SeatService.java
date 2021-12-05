@@ -1,10 +1,12 @@
 package com.example.apitest.seat;
 
 import com.example.apitest.menu.Menu;
+import com.example.apitest.message.Message;
 import com.example.apitest.store.Store;
 import com.example.apitest.store.StoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -27,4 +29,9 @@ public class SeatService {
         return seatRepository.findAllByStoreName(storeName);
     }
 
+    @Transactional
+    public Message changeSeatState(String storeName, Integer orderState, Integer tableNum) throws Exception {
+        seatRepository.changeSeatState(storeName, orderState, tableNum);
+        return null;
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.apitest.seat;
 
+import com.example.apitest.message.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,4 +27,10 @@ public class SeatController {
         return seatService.getSeat(storeName);
     }
 
+    @PostMapping("/changeSeatState")
+    @ResponseBody
+    public Message updateSeatState(@RequestParam String storeName, @RequestParam Integer orderState,
+                                    @RequestParam Integer tableNum) throws Exception {
+        return seatService.changeSeatState(storeName, orderState, tableNum);
+    }
 }
