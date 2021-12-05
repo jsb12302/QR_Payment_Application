@@ -1,5 +1,6 @@
 package com.example.myapplication.user.map.seat;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -26,11 +27,11 @@ import retrofit2.Response;
 
 public class ShopSeatActivity extends Fragment {
 
-    public static int[] table = {1, 1, 1, 1};
+    public static int[] table = new int[4];
 
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         new Thread(new ConnetGetTableStatus()).start();
+        super.onCreate(savedInstanceState);
     }
 
     private class ConnetGetTableStatus implements Runnable {
@@ -62,30 +63,16 @@ public class ShopSeatActivity extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.shop_seat, container, false);
-
-//        TextView[] seat = {v.findViewById(R.id.seat1), v.findViewById(R.id.seat2),
-//                v.findViewById(R.id.seat3), v.findViewById(R.id.seat4)};
-//
-//        for(int i = 0; i < 4; i++) {
-//            System.out.println(i+": "+table[i]);
-//            if(table[i]==1){
-//                seat[i].setBackgroundResource(R.drawable.active_button);
-//            }
-//            else{
-//                seat[i].setText("사용중");
-//            }
-//        }
-
-        return v;
+        return inflater.inflate(R.layout.shop_seat, container, false);
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    public void onResume() {
 
-        TextView[] seat = {view.findViewById(R.id.seat1), view.findViewById(R.id.seat2),
-                view.findViewById(R.id.seat3), view.findViewById(R.id.seat4)};
+        View v = getView();
+
+        TextView[] seat = {v.findViewById(R.id.seat1), v.findViewById(R.id.seat2),
+                v.findViewById(R.id.seat3), v.findViewById(R.id.seat4)};
 
         for(int i = 0; i < 4; i++) {
             System.out.println(i+": "+table[i]);
@@ -96,6 +83,6 @@ public class ShopSeatActivity extends Fragment {
                 seat[i].setText("사용중");
             }
         }
-
+        super.onResume();
     }
 }

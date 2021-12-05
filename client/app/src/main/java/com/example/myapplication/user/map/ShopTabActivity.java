@@ -43,6 +43,11 @@ public class ShopTabActivity extends AppCompatActivity {
 
         tabLayout.getTabAt(0).setText("메뉴");
         tabLayout.getTabAt(1).setText("좌석");
+    }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }
