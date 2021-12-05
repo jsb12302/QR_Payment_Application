@@ -91,4 +91,9 @@ public interface HttpService {
     Call<Message> updateOrderState(@Query("storeName")String storeName,
                           @Query("orderState")Integer orderState,
                           @Query("tableNum")Integer tableNum);
+
+    @POST("/changeSeatState")
+    Call<Message> updateSeatState(@Query("storeName")String storeName,
+                                  @Query("orderState")Integer orderState,
+                                  @Query("tableNum")Integer tableNum);
 }
