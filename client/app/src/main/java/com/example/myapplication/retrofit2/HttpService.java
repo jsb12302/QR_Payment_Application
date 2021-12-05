@@ -11,6 +11,7 @@ import com.example.myapplication.signup.OwnerSignUpDto;
 import com.example.myapplication.signup.UserSignUpDto;
 import com.example.myapplication.store.StoreSignUpDto;
 import com.example.myapplication.user.map.Stores;
+import com.example.myapplication.user.map.seat.SeatDTO;
 
 import java.util.HashMap;
 import java.util.List;
@@ -96,4 +97,7 @@ public interface HttpService {
     Call<Message> updateSeatState(@Query("storeName")String storeName,
                                   @Query("tableStatus")Integer tableStatus,
                                   @Query("tableNumber")Integer tableNumber);
+
+    @POST("/getSeat")
+    Call<List<SeatDTO>> getSeat(@Query("storeName")String storeName);
 }
