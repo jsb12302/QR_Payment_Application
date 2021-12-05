@@ -45,9 +45,6 @@
         <entry key="..\:/Users/jsb12/Desktop/android/android/client/app/src/main/res/layout/change_pwd_confirm.xml" value="0.264" />
         <entry key="..\:/Users/jsb12/Desktop/android/android/client/app/src/main/res/layout/content_main.xml" value="0.1" />
         <entry key="..\:/Users/jsb12/Desktop/android/android/client/app/src/main/res/layout/fragment_owner_check_sales.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/jsb12/Desktop/android/android/client/app/src/main/res/layout/fragment_owner_menu_manage.xml" value="0.1" />
-        <entry key="..\:/Users/jsb12/Desktop/android/android/client/app/src/main/res/layout/fragment_owner_seat_manage.xml" value="0.152" />
-        <entry key="..\:/Users/jsb12/Desktop/android/android/client/app/src/main/res/layout/image_down.xml" value="0.20260416666666667" />
         <entry key="..\:/Users/jsb12/Desktop/android/android/client/app/src/main/res/layout/fragment_owner_menu_manage.xml" value="0.2" />
         <entry key="..\:/Users/jsb12/Desktop/android/android/client/app/src/main/res/layout/fragment_owner_seat_manage.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/jsb12/Desktop/android/android/client/app/src/main/res/layout/image_down.xml" value="0.20260416666666667" />
@@ -73,8 +70,6 @@
         <entry key="..\:/Users/jsb12/Desktop/android/android/client/app/src/main/res/layout/signup_owner.xml" value="0.2" />
         <entry key="..\:/Users/jsb12/Desktop/android/android/client/app/src/main/res/layout/signup_user.xml" value="0.2" />
         <entry key="..\:/Users/jsb12/Desktop/android/android/client/app/src/main/res/layout/table_list.xml" value="0.264" />
-        <entry key="..\:/Users/jsb12/Desktop/android/android/client/app/src/main/res/layout/test.xml" value="0.21875" />
-        <entry key="..\:/Users/jsb12/Desktop/android/android/client/app/src/main/res/layout/text.xml" value="0.21875" />
         <entry key="..\:/Users/jsb12/Desktop/android/android/client/app/src/main/res/layout/test.xml" value="0.21875" />
         <entry key="..\:/Users/jsb12/Desktop/android/android/client/app/src/main/res/layout/text.xml" value="0.21875" />
         <entry key="..\:/Users/jsb12/Desktop/android/android/client/app/src/main/res/menu/drawerlayout.xml" value="0.264" />
@@ -107,9 +102,16 @@
         <entry key="..\:/Users/rlarl/Desktop/mobile_backup/client/app/src/main/res/layout/user_main.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/rlarl/Desktop/mobile_project/android/client/app/src/main/res/layout/basket_list.xml" value="0.2749094202898551" />
         <entry key="..\:/Users/rlarl/Desktop/mobile_project/android/client/app/src/main/res/layout/basket_list_item.xml" value="0.20364583333333333" />
+        <entry key="..\:/Users/rlarl/Desktop/mobile_project/android/client/app/src/main/res/layout/fragment_owner_seat_manage.xml" value="0.20104166666666667" />
+        <entry key="..\:/Users/rlarl/Desktop/mobile_project/android/client/app/src/main/res/layout/list.xml" value="0.20104166666666667" />
         <entry key="..\:/Users/rlarl/Desktop/mobile_project/android/client/app/src/main/res/layout/menu_list.xml" value="0.20364583333333333" />
         <entry key="..\:/Users/rlarl/Desktop/mobile_project/android/client/app/src/main/res/layout/menu_list_item.xml" value="0.33" />
         <entry key="..\:/Users/rlarl/Desktop/mobile_project/android/client/app/src/main/res/layout/search_shop.xml" value="0.2046875" />
+        <entry key="..\:/Users/rlarl/Desktop/mobile_project/android/client/app/src/main/res/layout/shop_menu_list.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/rlarl/Desktop/mobile_project/android/client/app/src/main/res/layout/shop_menu_list_item.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/rlarl/Desktop/mobile_project/android/client/app/src/main/res/layout/shop_seat.xml" value="0.20104166666666667" />
+        <entry key="..\:/Users/rlarl/Desktop/mobile_project/android/client/app/src/main/res/layout/shop_show_menu.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/rlarl/Desktop/mobile_project/android/client/app/src/main/res/layout/show_menu.xml" value="0.27309782608695654" />
         <entry key="..\:/Users/rlarl/Desktop/mobile_project/android/client/app/src/main/res/layout/user_main.xml" value="0.2046875" />
         <entry key="..\:/Users/rlarl/Desktop/mobile_project/client/app/src/main/res/layout/user_main.xml" value="0.327445652173913" />
         <entry key="..\:/android/client/app/src/main/res/drawable/border.xml" value="0.22083333333333333" />
