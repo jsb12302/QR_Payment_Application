@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 @Controller
 public class SeatController {
 
@@ -17,4 +19,11 @@ public class SeatController {
     public void addSeat(@RequestParam String storeName) {
         seatService.createSeat(storeName);
     }
+
+    @PostMapping("/getSeat")
+    @ResponseBody
+    public List<Seat> getSeat(@RequestParam String storeName) {
+        return seatService.getSeat(storeName);
+    }
+
 }
