@@ -14,7 +14,7 @@ public class SeatController {
 
     @PostMapping("/addSeat")
     @ResponseBody
-    public void addSeat(@RequestParam String loginId, @RequestParam String storeName) {
-        seatService.createSeat(loginId, storeName);
+    public void addSeat(@RequestParam String storeName) {
+        seatService.createSeat(storeName);
     }
 }

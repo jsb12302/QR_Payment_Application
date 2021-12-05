@@ -148,7 +148,7 @@ public class OwnerSignUpRequest extends AppCompatActivity {
                         ownerId,storeName,storeHP,storeLoc,storeLatitude,storeLongitude,null,ownerNum);
                 Response<Message> loginResponse = httpService.OwnerSignUpRequest(ownerSignUpDto).execute();
                 Response<Message> StoreSignUpResponse=httpService.StoreSignUpRequest(storeSignUpDto).execute();
-                httpService.addSeat(ownerId, storeName).execute();
+                httpService.addSeat(storeName).execute();
 
 
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);

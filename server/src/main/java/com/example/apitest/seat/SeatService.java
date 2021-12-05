@@ -11,13 +11,13 @@ public class SeatService {
     @Autowired
     SeatRepository seatRepository;
 
-    public void createSeat(String loginId, String storeName) {
+    public void createSeat(String storeName) {
         Seat seat = null;
 
         for (int i = 1; i < 5; i++) {
             seat = Seat.addSeat(i, 1, storeName);
             seatRepository.save(seat);
         }
-
     }
+
 }

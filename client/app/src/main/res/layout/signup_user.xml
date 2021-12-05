@@ -90,8 +90,8 @@
                 android:background="@drawable/gray_color_box_border"
                 android:color="#2196F3"
                 android:hint="@string/pwd_hint"
+                android:inputType="textPassword"
                 android:paddingStart="15dp"
-                android:fontFamily="@font/eliceregular"
                 android:textSize="20sp" />
 
             <EditText
@@ -102,8 +102,8 @@
                 android:background="@drawable/gray_color_box_border"
                 android:color="#2196F3"
                 android:hint="@string/pwd_hint2"
+                android:inputType="textPassword"
                 android:paddingStart="15dp"
-                android:fontFamily="@font/eliceregular"
                 android:textSize="20sp" />
 
             <EditText
@@ -126,6 +126,7 @@
                 android:background="@drawable/gray_color_box_border"
                 android:color="#2196F3"
                 android:hint="@string/user_ph_hint"
+                android:inputType="phone"
                 android:paddingStart="15dp"
                 android:fontFamily="@font/eliceregular"
                 android:textSize="20sp" />
