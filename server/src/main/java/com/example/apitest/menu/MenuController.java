@@ -35,18 +35,11 @@ public class MenuController {
         return menuService.findMenu(loginId);
     }
 
-    @PostMapping("/findMenuName")
+    @PostMapping("/getMenus")
     @ResponseBody
-    public void test22(){
-        String str="C:\\menu\\1\\539156780.jpeg";
-
-        System.out.println(str.indexOf("."));
-
-        System.out.println(str.lastIndexOf("\\"));
-        System.out.println(str.substring(10,19));
-
+    public List<Menu> returnMenus(@RequestParam String storeName){
+        return menuService.findMenus(storeName);
     }
-
 
     @GetMapping(value = "/img", produces = MediaType.IMAGE_JPEG_VALUE)
     @ResponseBody

@@ -40,6 +40,11 @@ public class MenuService {
 //        }
     }
 
+    public List<Menu> findMenus(String storeName){
+        List<Menu> allByStoreName = menuRepository.findAllByStoreName(storeName);
+        return allByStoreName;
+    }
+
     public List<Menu> findMenuImage(String loginId){
         List<Menu> allByLoginId = menuRepository.findAllByLoginId(loginId);
         return allByLoginId;
