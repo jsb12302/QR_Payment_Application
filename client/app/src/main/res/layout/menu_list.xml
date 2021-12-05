@@ -4,14 +4,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+    <ListView
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="안녕안녕~~ 나는 지수야">
-        </TextView>
-    </LinearLayout>
+        android:id="@+id/menu_list"
+        android:dividerHeight="2dp"
+        android:divider="#000000"/>
 
-    </LinearLayout>
+</LinearLayout>

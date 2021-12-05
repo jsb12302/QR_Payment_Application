@@ -1,10 +1,7 @@
 package com.example.myapplication.user.qr;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,13 +9,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
-import com.example.myapplication.user.menu.TabActivity;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.journeyapps.barcodescanner.CaptureActivity;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class ScanQRActivity extends AppCompatActivity {
 
