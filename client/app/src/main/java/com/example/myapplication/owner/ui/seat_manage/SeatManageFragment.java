@@ -306,6 +306,7 @@ public class SeatManageFragment extends Fragment {
             HttpService httpService = HttpClient.getApiService();
             try {
                Response<Message> changeResponse = httpService.updateOrderState(storeName, 1, tableNum).execute();
+               Response<Message> changeResponses = httpService.updateSeatState(storeName,1, tableNum).execute();
             } catch (IOException e) {
                 e.printStackTrace();
             }
