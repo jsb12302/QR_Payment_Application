@@ -42,7 +42,7 @@ This project exists thanks to all the people who [contribute](https://github.com
 <img src="https://avatars.githubusercontent.com/u/73810809?v=4" height="50" alt="Bonyeong1998"/></a>
 <a href="https://github.com/jsb12302">
 <img src="https://avatars.githubusercontent.com/u/73890228?v=4" height="50" alt="jsb12302"/></a>
-<a href="https://github.com/rlarlxo23238">
+<a href="https://github.com/rlarlxo2323">
 <img src="https://avatars.githubusercontent.com/u/81959996?v=4" height="50" alt="rlarlxo2323"/></a>
 <a href="https://github.com/ads0070">
 <img src="https://avatars.githubusercontent.com/u/73926856?v=4" height="50" alt="ads0070"/></a>
