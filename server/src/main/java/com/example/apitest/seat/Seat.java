@@ -20,8 +20,6 @@ public class Seat {
     private int id;
 
     int tableNumber;
-
-    @Column(columnDefinition = "integer default 1")
     int tableStatus;
 
     String storeName;
