@@ -34,4 +34,10 @@ public class SeatService {
         seatRepository.changeSeatState(storeName, tableStatus, tableNumber);
         return null;
     }
+
+    @Transactional
+    public Message changeSeatStateToUse(String storeName, Integer tableStatus, Integer tableNumber) throws Exception {
+        seatRepository.changeSeatStateToUse(storeName, tableStatus, tableNumber);
+        return null;
+    }
 }

@@ -33,4 +33,11 @@ public class SeatController {
                                     @RequestParam Integer tableNumber) throws Exception {
         return seatService.changeSeatState(storeName, tableStatus, tableNumber);
     }
+
+    @PostMapping("/changeSeatStateToUse")
+    @ResponseBody
+    public Message updateSeatStateToUse(@RequestParam String storeName, @RequestParam Integer tableStatus,
+                                   @RequestParam Integer tableNumber) throws Exception {
+        return seatService.changeSeatStateToUse(storeName, tableStatus, tableNumber);
+    }
 }

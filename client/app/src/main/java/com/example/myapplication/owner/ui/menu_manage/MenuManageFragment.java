@@ -98,8 +98,7 @@ public class MenuManageFragment extends Fragment implements View.OnClickListener
                     menuName=menuName.substring(start+1,finish);
 
                     InsertMenuList.add(new Menu(menuList.get(i).getMenuName(),menuList.get(i).getMenuPrice(),
-                            menuList.get(i).getMenuDesc(),"http://10.0.2.2:8080/img?loginId=" + loginId + "&menuName=" + menuName));
-
+                            menuList.get(i).getMenuDesc(),"http://10.0.2.2:8080/img?loginId=" + menuList.get(i).storeName + "&menuName=" + menuName));
                 }
 
 

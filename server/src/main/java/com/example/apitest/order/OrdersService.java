@@ -15,15 +15,15 @@ public class OrdersService {
     OrdersRepository ordersRepository;
 
     public Orders addOrder(String userId, String storeName, String menuName, int menuPrice,
-                           int menuCount, Date orderDate, int tableNum, int orderState){
+                           int menuCount, Date orderDate, int tableNum){
         Orders orders = Orders.addOrders(userId, storeName, menuName, menuPrice,
-                menuCount, orderDate, tableNum, orderState);
+                menuCount, orderDate, tableNum, 0);
         return ordersRepository.save(orders);
     }
 
     public void JoinOrder(OrdersDTO ordersDTO){
         addOrder(ordersDTO.getUserId(), ordersDTO.getStoreName(), ordersDTO.getMenuName(), ordersDTO.getMenuPrice(),
-                ordersDTO.getMenuCount(), ordersDTO.getOrderDate(), ordersDTO.getTableNum(), ordersDTO.getOrderState());
+                ordersDTO.getMenuCount(), ordersDTO.getOrderDate(), ordersDTO.getTableNum());
     }
 
     public List<Orders> findOrder(String storeName){

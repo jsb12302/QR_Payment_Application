@@ -23,8 +23,6 @@ public class Orders {
     int menuCount;
     Date orderDate;
     int tableNum;
-
-    @ColumnDefault("0")
     int orderState;
 
     public static Orders addOrders(String userId, String storeName, String menuName, int menuPrice,

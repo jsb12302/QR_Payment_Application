@@ -13,13 +13,15 @@ public class MenuDto {
     String menuPrice;
     String menuDesc;
     String loginId;
+    String storeName;
     String image;
 
-    public MenuDto(String menuName, String menuPrice, String menuDesc,String loginId) {
+    public MenuDto(String menuName, String menuPrice, String menuDesc,String loginId, String storeName) {
         this.menuName = menuName;
         this.menuPrice = menuPrice;
         this.menuDesc = menuDesc;
         this.loginId = loginId;
+        this.storeName = storeName;
     }
 
     public String getMenuName() {
