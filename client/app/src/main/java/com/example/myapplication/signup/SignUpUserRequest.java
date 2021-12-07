@@ -71,26 +71,33 @@ public class SignUpUserRequest extends AppCompatActivity {
             HttpService httpService = HttpClient.getApiService();
             UserSignUpDto userSignUpDto = new UserSignUpDto(
                     userId, userPwd, userPwd2, userName, userHP, Role.ROLE_USER);
+            Response<Message> loginResponse = null;
+
             try {
-                Response<Message> loginResponse = httpService.UserSignUpRequest(userSignUpDto).execute();
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
+                loginResponse = httpService.UserSignUpRequest(userSignUpDto).execute();
             }catch (IOException e){
                 e.printStackTrace();
+            }
 
+            String status = loginResponse.body().getMessage();
+
+            if (!status.equals("가입 성공")) {
                 Handler handler=new Handler(Looper.getMainLooper());
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         AlertDialog.Builder builder = new AlertDialog.Builder(SignUpUserRequest.this);
 
-                        builder.setTitle("SignUP Failed").setMessage("중복된 회원 정보 입니다."+"\n"+"다시 입력 해주세요.");
+                        builder.setTitle("SignUP Failed").setMessage(status+"\n"+"다시 입력 해주세요.");
 
                         AlertDialog alertDialog = builder.create();
                         alertDialog.show();
                     }
                 },0);
-
+            }
+            else {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
             }
         }
     }
