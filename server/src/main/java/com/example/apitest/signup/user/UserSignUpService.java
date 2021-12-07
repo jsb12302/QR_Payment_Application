@@ -22,22 +22,23 @@ public class UserSignUpService {
     }
 
     //DTO로 회원가입
-    public void userRegister(UserDTO userDTO){
+    public String userRegister(UserDTO userDTO){
+        String status = "가입 성공";
         if (userDTO.getUserId().trim().isEmpty() || userDTO.getUserPwd().trim().isEmpty()
                 || userDTO.getUserPwd2().trim().isEmpty() || userDTO.getUserName().trim().isEmpty()
                 || userDTO.getUserHP().trim().isEmpty()){
-            throw new EmptyFieldFoundException("빈칸 존재");
+            status = "빈칸 존재";
         }else if (userRepository.findByUserId(userDTO.getUserId())!=null){
-            throw new SameSignUpInfoFoundException("동일 아이디 존재");
+            status = "동일 아이디 존재";
         }else if (userRepository.findByUserHP(userDTO.getUserHP())!=null){
-            throw new SameSignUpInfoFoundException("동일 휴대폰 번호 존재");
+            status = "동일 휴대폰 번호 존재";
         }else if (!userDTO.getUserPwd().equals(userDTO.getUserPwd2())){
-            throw new SameSignUpInfoFoundException("재입력 비밀번호 불일치");
+            status = "재입력 비밀번호 불일치";
         }else{
             createUser(userDTO.getUserId(),userDTO.getUserPwd(),userDTO.getUserPwd2(),
                     userDTO.getUserName(), userDTO.getUserHP(),userDTO.getRole());
         }
+        return status;
     }
-
 
 }

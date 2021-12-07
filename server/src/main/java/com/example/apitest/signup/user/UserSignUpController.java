@@ -16,9 +16,9 @@ public class UserSignUpController {
     @PostMapping("userSignUpRequest")
     @ResponseBody
     public Message register(@RequestBody UserDTO userDTO){
-        signUpService.userRegister(userDTO);
+        String status = signUpService.userRegister(userDTO);
         Message message=new Message();
-        message.setMessage("사용자 회원가입 성공");
+        message.setMessage(status);
         return message;
     }
 
