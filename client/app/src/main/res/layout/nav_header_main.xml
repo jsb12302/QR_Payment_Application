@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:paddingTop="16dp"
         android:text="@string/nav_header_title"
         android:textColor="@color/black"
         android:textSize="20sp"

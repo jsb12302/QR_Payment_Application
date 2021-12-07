@@ -12,11 +12,12 @@
         android:usesCleartextTraffic="true"
         android:hardwareAccelerated="true"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/jjickmuck"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/jjickmuck"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
+
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="detunremqu" />

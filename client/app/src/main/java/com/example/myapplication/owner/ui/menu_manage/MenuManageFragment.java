@@ -38,7 +38,7 @@ public class MenuManageFragment extends Fragment implements View.OnClickListener
     private RecyclerView recyclerView;
     private MenuAdapter mAdapter;
 
-    String imgUrl = "http://10.0.2.2:8080/img?loginId=";
+    String imgUrl = "http://42.82.69.82:8080/img?loginId=";
 
     public static Bitmap globalBitmap;
 
@@ -53,7 +53,7 @@ public class MenuManageFragment extends Fragment implements View.OnClickListener
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         new Thread(new ConnectGetRunner()).start();
-        Thread.sleep(500);
+        Thread.sleep(1000);
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -96,7 +96,7 @@ public class MenuManageFragment extends Fragment implements View.OnClickListener
                 for(int i=0;i<menuList.size();i++) {
 
                     InsertMenuList.add(new Menu(menuList.get(i).getMenuName(),menuList.get(i).getMenuPrice(),
-                            menuList.get(i).getMenuDesc(),"http://10.0.2.2:8080/img?storeName=" + menuList.get(i).storeName + "&menuName=" + menuList.get(i).menuName));
+                            menuList.get(i).getMenuDesc(),"http://42.82.69.82:8080/img?storeName=" + menuList.get(i).storeName + "&menuName=" + menuList.get(i).menuName));
                 }
 
 

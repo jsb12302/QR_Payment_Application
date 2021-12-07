@@ -40,7 +40,7 @@ public class ShopMenuListActivity extends Fragment {
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         new Thread(new ConnectGetRunner()).start();
-        Thread.sleep(500);
+        Thread.sleep(1000);
     }
 
     @Nullable
@@ -78,13 +78,12 @@ public class ShopMenuListActivity extends Fragment {
                 Bitmap bitmap = null;
 
                 for(int i=0;i<menuList.size();i++) {
-
                     String menuName=menuList.get(i).getMenuName();
                     String menuCost=menuList.get(i).getMenuPrice();
                     String menuDesc=menuList.get(i).getMenuDesc();
 
                     try{
-                        URL myFileUrl = new URL("http://10.0.2.2:8080/img?storeName=" + storeName + "&menuName=" + menuName);
+                        URL myFileUrl = new URL("http://42.82.69.82:8080/img?storeName=" + storeName + "&menuName=" + menuName);
                         HttpURLConnection conn = (HttpURLConnection)myFileUrl.openConnection();
                         conn.setDoInput(true);
                         conn.connect();

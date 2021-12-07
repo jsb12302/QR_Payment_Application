@@ -32,6 +32,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.SneakyThrows;
 import retrofit2.Response;
 
 
@@ -249,10 +250,12 @@ public class SeatManageFragment extends Fragment {
     }
 
 
+    @SneakyThrows
     public void onCreate(@Nullable Bundle savedInstanceState) {
         //가맹점주 로그인 후 주문 상태에 따라 테이블 스위치 토글
         super.onCreate(savedInstanceState);
         new Thread(new ConnetGetTableStatus()).start();
+        Thread.sleep(1000);
     }
 
     private class ConnetGetTableStatus implements Runnable {
