@@ -76,11 +76,13 @@ QR코드를 사용한 주문 및 결제 방식은 현대 사회에서 널리 보
 
 ## 설계
 ### 디자인 설계
-![디자인 설계](image/공통기능.png)
+![공통기능](image/공통기능.png)
+![사용자기능](image/사용자기능.png)
+![가맹점기능](image/가맹점기능.png)
 ### 서버 아키텍쳐
 ![서버 아키텍쳐](image/서버아키텍쳐.png)
 ### DB 설계
-![DB설계](image/DB설계)
+![DB설계](image/DB설계.png)
 
 
 ## Contributors
