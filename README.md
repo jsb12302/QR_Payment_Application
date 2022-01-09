@@ -93,11 +93,16 @@ QR코드를 사용한 주문 및 결제 방식은 현대 사회에서 널리 보
 ### 로그인
 ![로그인](image/로그인.png)
 
-### 사용지
+### 사용자
 ![사용자](image/사용자.png)
 
 ### 가맹점
 ![가맹점](image/가맹점.png)
+
+### 시연 및 발표 영상
+## 시연 영상
+[![시연 영상](image/ScreenShot.png)](https://youtu.be/BuqNLZQmd-o)
+
 
 ## Contributors
 
