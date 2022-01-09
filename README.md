@@ -89,6 +89,16 @@ QR코드를 사용한 주문 및 결제 방식은 현대 사회에서 널리 보
 ![DB설계](image/DB설계.png)
 
 
+## 실행 화면
+### 로그인
+![로그인](image/로그인.png)
+
+### 사용지
+![사용자](image/사용자.png)
+
+### 가맹점
+![가맹점](image/가맹점.png)
+
 ## Contributors
 
 This project exists thanks to all the people who [contribute](https://github.com/jsb12302/android/graphs/contributors).
